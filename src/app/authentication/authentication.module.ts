@@ -1,12 +1,10 @@
-import { LoginComponent } from './authentication/login/login.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -39,33 +37,24 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { SignupComponent } from './authentication/signup/signup.component';
-
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    SignupComponent
-  ],
+  declarations: [SignupComponent, LoginComponent],
   imports: [
-    AngularFontAwesomeModule,
-    BrowserModule,
+    CommonModule,
+    ReactiveFormsModule,
+
     MatFormFieldModule,
     MatRadioModule,
     MatDatepickerModule,
     AppRoutingModule,
     HttpClientModule,
+
+
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -113,7 +102,6 @@ import { SignupComponent } from './authentication/signup/signup.component';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  providers: [MatDatepickerModule],
-  bootstrap: [AppComponent]
+  providers: [MatDatepickerModule]
 })
-export class AppModule { }
+export class AuthenticationModule { }
