@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { CustomValidators } from 'ng2-validation';
 import { HttpClient } from '@angular/common/http';
 import { MatStepper } from '@angular/material';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,9 @@ import { MatStepper } from '@angular/material';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, 
+    private http: HttpClient,
+    private authService: AuthService) { }
 
   // Array to Select Gender
   genders: string[] = ['Female',
@@ -51,7 +54,7 @@ export class SignupComponent implements OnInit {
       lname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+[0-9]*')]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       password: pass,
-      confirm: [null, [Validators.required, CustomValidators.equalTo(pass)]],
+      password_confirmation: [null, [Validators.required, CustomValidators.equalTo(pass)]],
       phone: ['', [Validators.required, CustomValidators.digits]],
       location: [''],
       birthdate: [''],
@@ -79,9 +82,13 @@ export class SignupComponent implements OnInit {
     console.log(this.urls);
   }
   onSubmit(form) {
-    form.value.imgID = this.urls[0]
-    form.value.imgPolice = this.urls[1]
-    form.value.imgPersonal = this.urls[2]
+    form.value.imgID = form.value.imgID ? this.urls[0] : null
+    form.value.imgPolice = form.value.imgPolice ? this.urls[1] : null
+    form.value.imgPersonal = form.value.imgPersonal ? this.urls[2] : null
+    this.authService.signUpUser(form.value).subscribe(
+      (res) => console.log(res),
+      (error) => console.log(error)
+    )
     console.log(form.value);
   }
 }

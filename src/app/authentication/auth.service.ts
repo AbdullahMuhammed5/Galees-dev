@@ -10,14 +10,10 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signUpUser(user){
-    const header = new HttpHeaders();
-    header.set('Content-Type', 'multipart/form-data');
-    return this.http.post('http://localhost:8000/api/register', user, {headers: header})
+    return this.http.post('http://localhost:8000/api/auth/register', user)
   }
 
   signInUser(user){
-    const header = new HttpHeaders();
-    header.set('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/api/login', user)
+    return this.http.post('http://localhost:8000/api/auth/login', user)
   }
 }

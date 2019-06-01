@@ -41,6 +41,9 @@
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <h2 class="text-center">Sign In Now</h2>
+                    <div class="alert alert-danger" [hidden]="!errorMessage">
+                        {{errorMessage}}
+                    </div>
                     <!-- Start Form -->
                     <form [formGroup]="login" (ngSubmit)="loginData(login)">
                         <!-- Start Stepper -->
@@ -56,7 +59,7 @@
                                         <mat-form-field>
                                             <input matInput placeholder="Email" formControlName="email">
                                         </mat-form-field>
-                                        <mat-hint class="alert alert-danger d-block" *ngIf="login.controls.email.touched && login.controls.email.errors?.required">
+                                        <mat-hint class="alert alert-danger d-block" *ngIf="login.controls.email.Invalid && login.controls.email.errors?.required">
                                             This field is required</mat-hint>
                                         <mat-hint class="alert alert-danger d-block" *ngIf="login.controls.email.dirty && login.controls.email.errors?.pattern">
                                             Invalid Email</mat-hint>
@@ -71,9 +74,9 @@
                                     </div>
                                     <div class="col-11">
                                         <mat-form-field>
-                                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                                            <input matInput placeholder="Password" [type]="!hide ? 'password' : 'text'" formControlName="password">
                                             <mat-icon matSuffix (click)="hide = !hide">
-                                                {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                {{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                         </mat-form-field>
                                         <mat-hint class="alert alert-danger d-block" *ngIf="login.controls.password.touched && login.controls.password.errors?.required">
                                             This field is required</mat-hint>

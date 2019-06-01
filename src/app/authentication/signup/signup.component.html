@@ -102,9 +102,9 @@
                                             </div>
                                             <div class="col-11">
                                                 <mat-form-field>
-                                                    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                                                    <input matInput placeholder="Password" [type]="!hide ? 'password' : 'text'" formControlName="password">
                                                     <mat-icon matSuffix (click)="hide = !hide">
-                                                        {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                        {{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                                 </mat-form-field>
                                                 <mat-hint class="alert alert-danger d-block" *ngIf="signup.controls.password.touched && signup.controls.password.errors?.required">
                                                     This field is required</mat-hint>
@@ -125,13 +125,13 @@
                                             </div>
                                             <div class="col-11">
                                                 <mat-form-field>
-                                                    <input matInput placeholder="Confirm Password" [type]="hide ? 'password' : 'text'" formControlName="confirm">
+                                                    <input matInput placeholder="Confirm Password" [type]="!hide ? 'password' : 'text'" formControlName="password_confirmation">
                                                     <mat-icon matSuffix (click)="hide = !hide">
-                                                        {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                        {{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 
                                                 </mat-form-field>
-                                                <mat-hint class="alert alert-danger d-block" *ngIf="signup.controls.confirm.errors?.equalTo && signup.controls.confirm.touched">Passwords are not matched</mat-hint>
-                                                <mat-hint class="alert alert-danger d-block" *ngIf="signup.controls.confirm.errors?.required && signup.controls.confirm.touched">Confirm Password is Required</mat-hint>
+                                                <mat-hint class="alert alert-danger d-block" *ngIf="signup.controls.password_confirmation.errors?.equalTo && signup.controls.password_confirmation.touched">Passwords are not matched</mat-hint>
+                                                <mat-hint class="alert alert-danger d-block" *ngIf="signup.controls.password_confirmation.errors?.required && signup.controls.password_confirmation.touched">Confirm Password is Required</mat-hint>
                                             </div>
                                         </div>
                                     </div>
@@ -251,10 +251,10 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <button class="input-file">
-                                                        <input type="file" id="file-input"
+                                                        <input type="file" id="file-input1"
                                                             (input)="onSelectFile($event)" formControlName="imgID"
                                                             multiple />
-                                                        <label for="file-input">UPLOAD</label>
+                                                        <label for="file-input1">UPLOAD</label>
                                                     </button>
                                                 </div>
                                             </div>
@@ -275,10 +275,10 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <button class="input-file">
-                                                        <input type="file" id="file-input"
+                                                        <input type="file" id="file-input2"
                                                             (change)="onSelectFile($event)" formControlName="imgPolice"
                                                             multiple />
-                                                        <label for="file-input">UPLOAD</label>
+                                                        <label for="file-input2">UPLOAD</label>
                                                     </button>
                                                 </div>
                                             </div>
@@ -299,10 +299,10 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <button class="input-file">
-                                                        <input type="file" id="file-input"
+                                                        <input type="file" id="file-input3"
                                                             (change)="onSelectFile($event)"
                                                             formControlName="imgPersonal" multiple />
-                                                        <label for="file-input">UPLOAD</label>
+                                                        <label for="file-input3">UPLOAD</label>
                                                     </button>
                                                 </div>
                                             </div>
