@@ -1,0 +1,24 @@
+@import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/_mixins';
+#sideNav {
+    background-color: #E8E8E8;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    h3 {
+        @include typoStyle($openBold, 1.514rem, 900);
+        color: $primary-color;
+    }
+    p {
+        @include typoStyle($open, 1.086rem, 500);
+        color: #666;
+    }
+    ul {
+        li {
+            a {
+                @include typoStyle($openSemiBold, 1.129rem, 600);
+                color: #666;
+            }
+        }
+    }
+}
