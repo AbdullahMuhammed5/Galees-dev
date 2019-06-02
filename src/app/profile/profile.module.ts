@@ -37,6 +37,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatRadioModule } from "@angular/material";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { SideNavComponent } from './profile-details/side-nav/side-nav.component';
 
 @NgModule({
   imports: [
@@ -107,6 +108,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule
-  ]
+  ],
+  declarations: [SideNavComponent]
 })
 export class ProfileModule {}
