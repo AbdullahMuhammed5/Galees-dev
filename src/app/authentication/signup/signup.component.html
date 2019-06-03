@@ -247,12 +247,12 @@
                                                     <h6>Upload National id</h6>
                                                 </div>
                                                 <div class="col-4">
-                                                    <img [src]="urls[0]" *ngIf="urls[0]" height="50">
+                                                    <img [src]="urls['img1']" *ngIf="urls['img1']" height="50">
                                                 </div>
                                                 <div class="col-4">
                                                     <button class="input-file">
                                                         <input type="file" id="file-input1"
-                                                            (input)="onSelectFile($event)" formControlName="imgID"
+                                                            (input)="onSelectFile($event.target.files)" formControlName="imgID"
                                                             multiple />
                                                         <label for="file-input1">UPLOAD</label>
                                                     </button>
@@ -271,12 +271,12 @@
                                                     <h6>Upload Police Papers</h6>
                                                 </div>
                                                 <div class="col-4">
-                                                    <img [src]="urls[1]" *ngIf="urls[1]" height="50">
+                                                    <img [src]="urls['img2']" *ngIf="urls['img2']" height="50">
                                                 </div>
                                                 <div class="col-4">
                                                     <button class="input-file">
                                                         <input type="file" id="file-input2"
-                                                            (change)="onSelectFile($event)" formControlName="imgPolice"
+                                                            (change)="onSelectFile($event.target.files)" formControlName="imgPolice"
                                                             multiple />
                                                         <label for="file-input2">UPLOAD</label>
                                                     </button>
@@ -295,12 +295,12 @@
                                                     <h6>Upload Personal Image</h6>
                                                 </div>
                                                 <div class="col-4">
-                                                    <img [src]="urls[2]" *ngIf="urls[2]" height="50">
+                                                    <img [src]="urls['img3']" *ngIf="urls['img3']" height="50">
                                                 </div>
                                                 <div class="col-4">
                                                     <button class="input-file">
                                                         <input type="file" id="file-input3"
-                                                            (change)="onSelectFile($event)"
+                                                            (change)="onSelectFile($event.target.files)"
                                                             formControlName="imgPersonal" multiple />
                                                         <label for="file-input3">UPLOAD</label>
                                                     </button>

@@ -46,6 +46,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SignupComponent } from './authentication/signup/signup.component';
+import { TokenService } from './authentication/token.service';
 
 
 
@@ -113,7 +114,7 @@ import { SignupComponent } from './authentication/signup/signup.component';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule, TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

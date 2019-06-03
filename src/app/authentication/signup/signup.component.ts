@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
-import { HttpClient } from '@angular/common/http';
 import { MatStepper } from '@angular/material';
 import { AuthService } from '../auth.service';
 
@@ -12,32 +11,27 @@ import { AuthService } from '../auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, 
-    private http: HttpClient,
+  constructor(private formBuilder: FormBuilder,
     private authService: AuthService) { }
 
   // Array to Select Gender
-  genders: string[] = ['Female',
-    'Male'];
+  genders: string[] = ['Female', 'Male'];
+  // Array to Select Career
+  careers: string[] = ['Baby Sitter', 'Eldery Sitter'];
+    
+  selectedCareer: string;
   selectedGender: string;
 
   changeGender(gender) {
     this.selectedGender = gender;
   }
-  // Array to Select Carres
-  // tslint:disable-next-line: member-ordering
-  careers: string[] = ['Baby Sitter', 'Eldery Sitter'];
-  // tslint:disable-next-line: member-ordering
-  selectedCareer: string;
   changeCareer(career) {
     this.selectedCareer = career;
-    // console.log(this.selectedCareer);
   }
 
   // tslint:disable-next-line: member-ordering
   signup: FormGroup;
-  // Array to push imgs
-  // tslint:disable-next-line: member-ordering
+  
   goForward(stepper: MatStepper) {
     stepper.next();
   }
@@ -45,17 +39,18 @@ export class SignupComponent implements OnInit {
   goBack(stepper: MatStepper) {
     stepper.previous();
   }
-  urls = [];
+
   ngOnInit() {
-    // tslint:disable-next-line: max-line-length
-    const pass = new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(12), Validators.pattern('^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])*.{0,}$')]);
+    const pass = new FormControl(null, [Validators.required, Validators.minLength(6), 
+      Validators.maxLength(12), Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])*.{0,}$/) ]);
+
     this.signup = this.formBuilder.group({
-      fname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+[0-9]*')]],
-      lname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+[0-9]*')]],
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      lname: ['', [ Validators.required, Validators.pattern(/[a-zA-Z]+[0-9]*/)] ],
+      fname: ['', [ Validators.required, Validators.pattern(/[a-zA-Z]+[0-9]*/)] ],
+      email: ['', [Validators.required, Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)] ],
       password: pass,
-      password_confirmation: [null, [Validators.required, CustomValidators.equalTo(pass)]],
-      phone: ['', [Validators.required, CustomValidators.digits]],
+      password_confirmation: [ null, [Validators.required, CustomValidators.equalTo(pass)] ],
+      phone: ['', [ Validators.required, CustomValidators.digits] ],
       location: [''],
       birthdate: [''],
       gender: [''],
@@ -65,30 +60,31 @@ export class SignupComponent implements OnInit {
       imgPersonal: [''],
     });
   }
-  onSelectFile(event) {
-    // console.log(event.target.files)
-    if (event.target.files && event.target.files[0]) {
-      const filesAmount = event.target.files.length;
-      for (let i = 0; i < filesAmount; i++) {
-        const reader = new FileReader();
-        // tslint:disable-next-line: no-shadowed-variable
-        reader.onload = (event) => {
-          // console.log(event.target.result);
-          this.urls.push(event.target.result);
-        }
-        reader.readAsDataURL(event.target.files[i]);
-      }
+
+  arr = [];
+  urls = {};
+  onSelectFile(selected) {
+    this.arr.push(selected)
+    for (let i = 0; i < this.arr.length; i++) {
+      const [file] = this.arr[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.urls['img'+(i+1)] = reader.result;
+      };
     }
-    console.log(this.urls);
+    // console.log(this.urls)
   }
+
   onSubmit(form) {
-    form.value.imgID = form.value.imgID ? this.urls[0] : null
-    form.value.imgPolice = form.value.imgPolice ? this.urls[1] : null
-    form.value.imgPersonal = form.value.imgPersonal ? this.urls[2] : null
+    form.value.imgID = form.value.imgID ? this.urls['img1'] : null
+    form.value.imgPolice = form.value.imgPolice ? this.urls['img2'] : null
+    form.value.imgPersonal = form.value.imgPersonal ? this.urls['img3'] : null
+
     this.authService.signUpUser(form.value).subscribe(
       (res) => console.log(res),
       (error) => console.log(error)
     )
-    console.log(form.value);
+    // console.log(form.value);
   }
 }
