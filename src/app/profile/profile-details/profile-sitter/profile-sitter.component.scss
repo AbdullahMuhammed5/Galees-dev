@@ -1,6 +1,5 @@
 @import '../../../../assets/scss/_variables';
 @import '../../../../assets/scss/_mixins';
-.hours {
-    color: #818181;
-    @include typoStyle($open, .8rem, 500);
+#sideNav {
+    background-color: #E8E8E8;
 }

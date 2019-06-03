@@ -1,24 +1,16 @@
 @import '../../../../assets/scss/variables';
 @import '../../../../assets/scss/_mixins';
-#sideNav {
-    background-color: #E8E8E8;
-    width: 100%;
-    position: absolute;
-    height: 100%;
-    h3 {
-        @include typoStyle($openBold, 1.514rem, 900);
+.card {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(221, 223, 226, 0.16);
+    border: 0;
+    h4 {
         color: $primary-color;
+        @include typoStyle($openBold, 1.3rem, 900);
     }
     p {
-        @include typoStyle($open, 1.086rem, 500);
-        color: #666;
-    }
-    ul {
-        li {
-            a {
-                @include typoStyle($openSemiBold, 1.129rem, 600);
-                color: #666;
-            }
-        }
+        color: #707070;
+        @include typoStyle($openRegualr, 1rem, 500);
     }
 }
