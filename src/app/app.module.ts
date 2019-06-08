@@ -41,20 +41,14 @@ import {
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { ProfileSitterComponent } from './sitter-profile/profile-sitter/profile-sitter.component';
+import { OrderComponent } from './order/order.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HeaderComponent,
-    FooterComponent,
-    ProfileSitterComponent
+    OrderComponent
   ],
   imports: [
     AngularFontAwesomeModule,
