@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignupComponent } from './signup/signup.component';
+
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
@@ -42,8 +42,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SignupComponent } from './sitter-signup/sitter-signup.component';
+import { ClientSignupComponent } from './client-signup/client-signup.component';
 @NgModule({
-  declarations: [SignupComponent, LoginComponent],
+  declarations: [SignupComponent, LoginComponent, ClientSignupComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -53,8 +55,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDatepickerModule,
     AppRoutingModule,
     HttpClientModule,
-
-
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -65,7 +65,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatStepperModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCheckboxModule
   ],
   exports: [
 
@@ -81,6 +82,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
+    MatCheckboxModule,
     MatIconModule,
     MatInputModule,
     MatListModule,

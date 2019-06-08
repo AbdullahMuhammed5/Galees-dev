@@ -1,3 +1,4 @@
+import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -39,14 +40,15 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { SignupComponent } from './authentication/signup/signup.component';
 import { TokenService } from './authentication/token.service';
+import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
 
 
 
@@ -57,7 +59,9 @@ import { TokenService } from './authentication/token.service';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ClientSignupComponent
+
   ],
   imports: [
     AngularFontAwesomeModule,
@@ -77,7 +81,8 @@ import { TokenService } from './authentication/token.service';
     MatStepperModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCheckboxModule
   ],
   exports: [
 

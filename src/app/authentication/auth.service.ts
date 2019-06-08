@@ -9,11 +9,15 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  signUpUser(user){
+  signUpUser(user) {
     return this.http.post('http://localhost:8000/api/auth/register', user)
   }
 
-  signInUser(user){
+  signUpClientUser(user) {
+    return this.http.post('http://localhost:8000/api/auth/ClientRegister', user)
+  }
+
+  signInUser(user) {
     return this.http.post('http://localhost:8000/api/auth/login', user)
   }
 }

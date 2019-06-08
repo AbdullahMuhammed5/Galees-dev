@@ -5,9 +5,9 @@ import { MatStepper } from '@angular/material';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  selector: 'app-sitter-signup',
+  templateUrl: './sitter-signup.component.html',
+  styleUrls: ['./sitter-signup.component.scss']
 })
 export class SignupComponent implements OnInit {
 
@@ -18,9 +18,15 @@ export class SignupComponent implements OnInit {
   genders: string[] = ['Female', 'Male'];
   // Array to Select Career
   careers: string[] = ['Baby Sitter', 'Eldery Sitter'];
-    
+
   selectedCareer: string;
   selectedGender: string;
+
+  // tslint:disable-next-line: member-ordering
+  signup: FormGroup;
+
+  arr = [];
+  urls = {};
 
   changeGender(gender) {
     this.selectedGender = gender;
@@ -29,9 +35,6 @@ export class SignupComponent implements OnInit {
     this.selectedCareer = career;
   }
 
-  // tslint:disable-next-line: member-ordering
-  signup: FormGroup;
-  
   goForward(stepper: MatStepper) {
     stepper.next();
   }
@@ -41,16 +44,16 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    const pass = new FormControl(null, [Validators.required, Validators.minLength(6), 
-      Validators.maxLength(12), Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])*.{0,}$/) ]);
+    const pass = new FormControl(null, [Validators.required, Validators.minLength(6),
+    Validators.maxLength(12), Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])*.{0,}$/)]);
 
     this.signup = this.formBuilder.group({
-      lname: ['', [ Validators.required, Validators.pattern(/[a-zA-Z]+[0-9]*/)] ],
-      fname: ['', [ Validators.required, Validators.pattern(/[a-zA-Z]+[0-9]*/)] ],
-      email: ['', [Validators.required, Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)] ],
+      lname: ['', [Validators.required, Validators.pattern(/[a-zA-Z]+[0-9]*/)]],
+      fname: ['', [Validators.required, Validators.pattern(/[a-zA-Z]+[0-9]*/)]],
+      email: ['', [Validators.required, Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)]],
       password: pass,
-      password_confirmation: [ null, [Validators.required, CustomValidators.equalTo(pass)] ],
-      phone: ['', [ Validators.required, CustomValidators.digits] ],
+      password_confirmation: [null, [Validators.required, CustomValidators.equalTo(pass)]],
+      phone: ['', [Validators.required, CustomValidators.digits]],
       location: [''],
       birthdate: [''],
       gender: [''],
@@ -60,31 +63,26 @@ export class SignupComponent implements OnInit {
       imgPersonal: [''],
     });
   }
-
-  arr = [];
-  urls = {};
   onSelectFile(selected) {
-    this.arr.push(selected)
+    this.arr.push(selected);
     for (let i = 0; i < this.arr.length; i++) {
       const [file] = this.arr[i];
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.urls['img'+(i+1)] = reader.result;
+        this.urls['img' + (i + 1)] = reader.result;
       };
     }
-    // console.log(this.urls)
   }
 
   onSubmit(form) {
-    form.value.imgID = form.value.imgID ? this.urls['img1'] : null
-    form.value.imgPolice = form.value.imgPolice ? this.urls['img2'] : null
-    form.value.imgPersonal = form.value.imgPersonal ? this.urls['img3'] : null
+    form.value.imgID = form.value.imgID ? this.urls['img1'] : null;
+    form.value.imgPolice = form.value.imgPolice ? this.urls['img2'] : null;
+    form.value.imgPersonal = form.value.imgPersonal ? this.urls['img3'] : null;
 
     this.authService.signUpUser(form.value).subscribe(
       (res) => console.log(res),
       (error) => console.log(error)
-    )
-    // console.log(form.value);
+    );
   }
 }

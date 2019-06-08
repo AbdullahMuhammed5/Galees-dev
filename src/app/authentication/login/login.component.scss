@@ -23,6 +23,16 @@ label {
     @include typoStyle($open, .8rem, 500);
 }
 
+mat-checkbox {
+    color: #A9A9A9;
+    @include typoStyle($openRegualr, 1rem, 500);
+}
+
+a {
+    @include typoStyle($openSemiBold, 1rem, 900);
+    color: $priper;
+}
+
 .checkmark {
     position: absolute;
     top: 28px !important;
@@ -155,53 +165,4 @@ label {
 
 h6 {
     @include typoStyle($open, .8rem, 900);
-}
-
-#navbar {
-    background: $primary-color;
-}
-
-nav {
-    ul {
-        li {
-            a {
-                color: $white;
-                @include typoStyle($open, .8rem, 900);
-                text-transform: uppercase;
-            }
-        }
-    }
-}
-
-footer {
-    background: #F2F2F2;
-    .col-custom {
-        width: 20%;
-        a {
-            color: #6E6E6E;
-            @include typoStyle($open, .8rem, 900);
-        }
-    }
-    .social {
-        i {
-            color: $white;
-            font-size: 1.5rem;
-            background: $primary-color;
-            padding: 10px 13px;
-            border-radius: 50%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-            cursor: pointer;
-            &:hover {
-                color: $primary-color;
-                background: $white;
-            }
-        }
-    }
-    p {
-        @include typoStyle($open, .8rem, 500);
-        color: $primary-color;
-    }
 }
