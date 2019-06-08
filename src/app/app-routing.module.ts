@@ -1,28 +1,17 @@
-import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
-import { LoginComponent } from './authentication/login/login.component';
-
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
-
+import { ProfileRoutingModule } from "./profile-routing.module";
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { ProfileCardComponent } from "./profile/profile-card/profile-card.component";
 
 const routes: Routes = [
   {
-    path: '', component: LoginComponent
-  },
-  {
-    path: 'sitter-signup', component: SignupComponent
-  },
-  {
-    path: 'client-signup', component: ClientSignupComponent
-  },
-  {
-    path: 'login', component: LoginComponent
+    path: "profile",
+    component: ProfileCardComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), ProfileRoutingModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

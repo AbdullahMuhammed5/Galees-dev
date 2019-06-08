@@ -1,0 +1,143 @@
+<header>
+    <main class="text-center">
+        <h1>FIND YOUR BABYSITTER</h1>
+        <p class="w-50 my-5">It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout content of a page when looking at its layout..</p>
+        <div class="main-action d-flex justify-content-center align-items-center">
+            <div class="search">
+                <input type="text" class="mt-3" name="" placeholder="Search for a Sitter" id="">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </main>
+</header>
+
+
+<section id="profile">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- SideBar -->
+                <div class="col-xl-3 col-md-12 col-xs-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-filter">
+                                </i>
+                                <span>Filter</span></h3>
+                            <hr>
+                            <div class="rangeFilter">
+                                <h4>Age</h4>
+                                <p><span id="lowRange">22</span> to <span id="upperRange">45</span> years</p>
+                                <div class="input-range-container">
+                                    <div class="input-range-tracker"></div>
+                                    <div class="input-range-tracker-between"></div>
+                                    <input type="range" max="45" value="25" name="range-lower" id="range-lower">
+                                    <input type="range" max="45" value="30" name="range-upper" id="range-upper">
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="rangeFilter">
+                                <h4>Experience</h4>
+                                <p><span id="exp-low">8</span> to <span id="exp-up">17</span> years</p>
+                                <div class="input-range-container-2">
+                                    <div class="input-range-tracker-2"></div>
+                                    <div class="input-range-tracker-between-2"></div>
+                                    <input type="range" max="17" value="10" name="range-lower-2" id="range-lower" class="exp-lower">
+                                    <input type="range" max="17" value="15" name="range-upper-2" id="range-upper" class="exp-upper">
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="type">
+                                <h4>Type</h4>
+                                <div aria-label="Select an option" *ngFor="let type of types">
+                                    <label class="radio mb-3 align-items-center d-flex"><span class="labelRadio ml-4">{{type}}</span>
+                                        <input type="radio" value="{{type}}" 
+                                            (change)="changeType(type)">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="gender">
+                                <h4>Gender</h4>
+                                <div aria-label="Select an option" *ngFor="let gender of genders">
+                                    <label class="radio mb-3 align-items-center d-flex"><span class="labelRadio ml-4">{{gender}}</span>
+                                        <input type="radio" value="{{gender}}" 
+                                            (change)="changeGender(gender)">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="rating">
+                                <h4>Rating</h4>
+                                <div id="rating">
+                                    <button class="mb-1 text-left rate w-100" value="4">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> & Up
+                                   </button>
+                                    <button class="mb-1 text-left rate w-100" value="3">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> & Up
+                                   </button>
+                                    <button class="mb-1 text-left rate w-100" value="2">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> & Up
+                                   </button>
+                                    <button class="mb-1 text-left rate w-100" value="1">
+                                    <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> & Up
+                                   </button>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="about">
+                                <h4>About</h4>
+                                <div aria-label="Select an option" *ngFor="let exp of experiences">
+                                    <label class="radio mb-3 align-items-center d-flex"><span class="labelRadio ml-4">{{exp}}</span>
+                                        <input type="radio" value="{{exp}}" 
+                                            (change)="changeExp(exp)">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Profiles Cards -->
+                <div class="col-xl-9 col-md-12 col-xs-12 row no-gutters">
+                    <div class="col-xl-4 col-md-6 col-xs-12" *ngFor="let profile of profiles">
+                        <div class="card p-4">
+                            <p class="price text-right m-0">${{profile.hourlyRate}}/hr</p>
+                            <img [attr.src]="'http://localhost:8000/get-img/'+profile.personalPic" class="card-img-top img-fluid" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{profile.name}}</h5>
+                                <p class="card-text m-0">{{profile.career}}</p>
+                                <p class="m-0"><i class="fas fa-map-marker-alt mr-2"></i>{{profile.address}}</p>
+                                <div>
+                                    <span *ngFor="let number of [1,2,3,4,5]">
+                                    <i class="fas fa-star" *ngIf="number <= profile.reviewRate"></i>
+                                    <i class="far fa-star" *ngIf="number > profile.reviewRate"></i>
+                                </span>
+                                    <a href="#" class="btn btn-primary mt-3">Show Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <nav aria-label="..." class="text-center mx-auto my-3">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-angle-left"></i></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">01</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">02 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">03</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
