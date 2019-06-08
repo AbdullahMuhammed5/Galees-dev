@@ -44,6 +44,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ProfileSitterComponent } from './sitter-profile/profile-sitter/profile-sitter.component';
 
 
 
@@ -52,7 +53,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     AppComponent,
     NavbarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileSitterComponent
   ],
   imports: [
     AngularFontAwesomeModule,
