@@ -1,183 +1,32 @@
     @import '../../../assets/scss/_variables';
     @import '../../../assets/scss/mixins';
-    .checkmark {
-        position: absolute;
-        height: 20px !important;
-        width: 20px !important;
-        border: 1px solid #ddd;
-        border-radius: 25%;
-        -webkit-border-radius: 25%;
-        -moz-border-radius: 25%;
-        -ms-border-radius: 25%;
-        -o-border-radius: 25%;
-    }
-    
-    @font-face {
-        font-family: $openBold;
-        src: url(../../../assets/fonts/OpenSans-Bold.ttf);
-    }
-    
-    @font-face {
-        font-family: $openExtraBold;
-        src: url(../../../assets/fonts/OpenSans-ExtraBold.ttf);
-    }
-    
-    @font-face {
-        font-family: $openRegualr;
-        src: url(../../../assets/fonts/OpenSans-Regular.ttf);
-    }
-    
-    @font-face {
-        font-family: $openSemiBold;
-        src: url(../../../assets/fonts/OpenSans-SemiBold.ttf);
-    }
-    
-    .radio input:checked~.checkmark {
-        background: $primary-color !important;
-    }
-    
-    .radio {
-        position: relative;
-        cursor: pointer;
-        @include typoStyle($openRegualr, 1.143rem, 200);
-        user-select: none;
-        color: #707070;
-    }
-    
-    .radio input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-    }
-    
-    .radio:hover input~.checkmark {
-        background-color: #ccc;
-    }
-    
-    .radio input:checked~.checkmark {
-        background-color: #2196F3;
-    }
-    
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-    
-    .radio input:checked~.checkmark:after {
-        display: flex;
-    }
-    
-    .radio .checkmark:after {
-        top: 6px;
-        left: 6px;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: white;
-    }
-    
-    nav {
-        ul {
-            li {
-                a {
-                    color: $white;
-                    @include typoStyle($open, .8rem, 900);
-                    text-transform: uppercase;
-                }
+header {
+        @include background-img('../../../assets/img/profilesheader.png', cover, center, no-repeat);
+        margin-top: -4.5rem;
+        main {
+            padding: 13.43rem 0 17rem 0;
+            h1 {
+                @extend %main-title;
             }
-        }
-    }
-    
-    .pagination {
-        border: 2px solid #e7e7e7;
-        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.08);
-        li {
-            a {
-                color: #9D9D9D !important;
-            }
-        }
-    }
-    
-    .page-item.active .page-link {
-        background: $primary-color;
-        color: $white !important;
-    }
-    
-    footer {
-        background: #F2F2F2;
-        .col-custom {
-            width: 20%;
-            a {
-                color: #6E6E6E;
-                @include typoStyle($open, .8rem, 900);
-            }
-        }
-        .social {
-            i {
+            p {
+                @include typoStyle($open, 1rem, 200);
                 color: $white;
-                font-size: 1.5rem;
-                background: $primary-color;
-                padding: 10px 13px;
-                border-radius: 50%;
-                -webkit-border-radius: 50%;
-                -moz-border-radius: 50%;
-                -ms-border-radius: 50%;
-                -o-border-radius: 50%;
-                cursor: pointer;
-                &:hover {
-                    color: $primary-color;
-                    background: $white;
-                }
+                margin: $auto-margin;
             }
-        }
-        p {
-            @include typoStyle($open, .8rem, 500);
-            color: $primary-color;
-        }
-    }
-    
-    header {
-        @include background-img('../../../assets/img/profilesheader.png', cover, center, no-repeat)
-    }
-    
-    main {
-        padding: 13.43rem 0 17rem 0;
-        h1 {
-            @include typoStyle($openBold, 3.571rem, 900);
-            color: $white;
-            text-transform: uppercase;
-        }
-        p {
-            @include typoStyle($open, 1rem, 200);
-            color: $white;
-            margin: $auto-margin;
-        }
-        .search {
-            width: 40%;
-            height: 2.857rem;
-            position: relative;
-            margin: $auto-margin;
-            input {
-                background: rgba(255, 255, 255, .6);
-                border: 0;
-                width: 100%;
+            .search {
+                width: 40%;
+                height: 4.857rem;
                 position: relative;
-                padding: 10px 15px;
-                border-radius: 20px;
-                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-                &::placeholder {
-                    color: $primary-color;
-                    @include typoStyle($openBold, 1rem, 900);
-                    letter-spacing: -.01em;
+                input {
+                    @extend %search-input;
                 }
-            }
-            i {
-                color: $primary-color;
-                position: absolute;
-                font-size: 1.3rem;
-                right: 5%;
-                top: 63%;
+                i {
+                    color: $primary-color;
+                    position: absolute;
+                    font-size: 1.3rem;
+                    right: 5%;
+                    top: 37%;
+                }
             }
         }
     }
@@ -190,17 +39,17 @@
             }
         }
         h4 {
-            @include typoStyle($openSemiBold, 1.429rem, 600);
+            @include typoStyle($openSemiBold, 1rem, 600);
         }
         h5 {
-            @include typoStyle($openBold, 1.429rem, 900)
+            @include typoStyle($openBold, 1rem, 900)
         }
         background: $white;
         border: 0;
         position: relative;
         border-radius: 20px;
         box-shadow: 0px 0px 20px rgba(221, 223, 226, 0.3);
-        bottom: 13%;
+        bottom: 9rem;
         img {
             margin: $auto-margin;
             filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
@@ -214,10 +63,10 @@
         }
         .price {
             color: #707070;
-            @include typoStyle($openSemiBold, 1.286rem, 600);
+            @include typoStyle($openSemiBold, 1rem, 600);
         }
         p {
-            @include typoStyle($open, 1.143rem, 200);
+            @include typoStyle($open, .8rem, 200);
             color: #707070;
         }
         .fa-star {
@@ -410,4 +259,76 @@
     input[name="range-upper"]::-ms-thumb,
     input[name="range-upper-2"]::-ms-thumb {
         background: $input-range-upper-thumb-color;
+    }
+    
+    .checkmark {
+        position: absolute;
+        height: 20px !important;
+        width: 20px !important;
+        border: 1px solid #ddd;
+        border-radius: 25%;
+        -webkit-border-radius: 25%;
+        -moz-border-radius: 25%;
+        -ms-border-radius: 25%;
+        -o-border-radius: 25%;
+    }
+    
+    .radio input:checked~.checkmark {
+        background: $primary-color !important;
+    }
+    
+    .radio {
+        position: relative;
+        cursor: pointer;
+        @include typoStyle($openRegualr, 1.143rem, 200);
+        user-select: none;
+        color: #707070;
+    }
+    
+    .radio input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    .radio:hover input~.checkmark {
+        background-color: #ccc;
+    }
+    
+    .radio input:checked~.checkmark {
+        background-color: #2196F3;
+    }
+    
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    
+    .radio input:checked~.checkmark:after {
+        display: flex;
+    }
+    
+    .radio .checkmark:after {
+        top: 6px;
+        left: 6px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+    }
+    
+    .pagination {
+        border: 2px solid #e7e7e7;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.08);
+        li {
+            a {
+                color: #9D9D9D !important;
+            }
+        }
+    }
+    
+    .page-item.active .page-link {
+        background: $primary-color;
+        color: $white !important;
     }

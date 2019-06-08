@@ -7,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./profile-card.component.scss"]
 })
 export class ProfileCardComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   profiles;
   types: string[] = ["Baby Sitter", "Nanny", " Elderly Sitter "];
   selectedType: string;
@@ -31,12 +31,12 @@ export class ProfileCardComponent implements OnInit {
     this.selectedExp = exp;
   }
   ngOnInit() {
-    this.http.get("http://localhost:8000/get-profile-card").subscribe(
+    this.http.get('http://localhost:8000/get-profile-card').subscribe(
       // res => this.profiles = res
-      res => {console.log(res);
-      this.profiles = res; }
+      res => {
+        console.log(res);
+        this.profiles = res;
+      }
     );
   }
-
-  
 }
