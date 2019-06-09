@@ -40,27 +40,19 @@ export class ClientSignupComponent implements OnInit {
       imgID: [''],
     });
   }
-  onSelectFile(event) {
-    // console.log(event.target.files)
-    if (event.target.files && event.target.files[0]) {
-      const filesAmount = event.target.files.length;
-      for (let i = 0; i < filesAmount; i++) {
-        const reader = new FileReader();
-        // tslint:disable-next-line: no-shadowed-variable
-        reader.onload = event => {
-          // console.log(event.target.result);
-          this.urls.push(reader.result);
-        };
-        reader.readAsDataURL(event.target.files[i]);
-      }
-    }
-    console.log(this.urls);
+  onSelectFile(selected) {
+      const [file] = selected;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.urls[0] = reader.result;
+      };
   }
   onSubmit(form) {
     form.value.imgID = form.value.imgID ? this.urls[0] : null;
-    // this.authService
-    //   .signUpClientUser(form.value)
-    //   .subscribe(res => console.log(res), error => console.log(error));
+    this.authService
+      .signUpClientUser(form.value)
+      .subscribe(res => console.log(res), error => console.log(error));
     console.log(form.value);
   }
 }

@@ -14,7 +14,7 @@ export class AuthService {
   }
 
   signUpClientUser(user) {
-    return this.http.post('http://localhost:8000/api/auth/ClientRegister', user)
+    return this.http.post('http://localhost:8000/api/auth/client-register', user)
   }
 
   signInUser(user) {
