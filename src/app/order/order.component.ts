@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import { TokenService } from './../token.service';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
@@ -9,7 +10,7 @@ import { CustomValidators } from 'ng2-validation';
 })
 export class OrderComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClientModule) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
   // tslint:disable-next-line: member-ordering
   signupUser: FormGroup;
@@ -31,10 +32,20 @@ export class OrderComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form.value);
+    let header = new HttpHeaders();
+    let other_header = header.append('Authorization', 'Test');
+    this.http.post("http://localhost:8000/order", form.value).subscribe(res => console.log(res)
+    )
 
-    // function to be used to send data to DB
-    // this.http.get('').subscribe(data => console.log(data);
-    // )
   }
-
 }
+
+
+
+
+
+
+
+
+
+
