@@ -32,8 +32,7 @@ export class OrderComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form.value);
-
-    this.http.get('http://localhost:8000/orders').subscribe(res => console.log(res)
+    this.http.post('http://localhost:8000/orders', form.value).subscribe(res => console.log(res)
     )
 
   }
