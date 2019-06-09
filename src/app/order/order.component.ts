@@ -32,9 +32,8 @@ export class OrderComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form.value);
-    let header = new HttpHeaders();
-    let other_header = header.append('Authorization', 'Test');
-    this.http.post("http://localhost:8000/order", form.value).subscribe(res => console.log(res)
+
+    this.http.get('http://localhost:8000/orders').subscribe(res => console.log(res)
     )
 
   }
