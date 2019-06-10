@@ -1,5 +1,3 @@
-import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
-import { LoginComponent } from './authentication/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
@@ -56,8 +54,6 @@ import { NotificationsComponent } from "./profile/profile-details/notifications/
 import { ReviewsComponent } from "./profile/profile-details/reviews/reviews.component";
 import { SettingsComponent } from "./profile/profile-details/settings/settings.component";
 import { ProfileRoutingModule } from './profile-routing.module';
-import { TokenService } from './authentication/token.service';
-import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
 
 @NgModule({
   declarations: [
@@ -65,9 +61,6 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
-    SignupComponent,
-    ClientSignupComponent,
     ProfileCardComponent,
     PersonalInfoComponent,
     PersonalSkillsComponent,
@@ -133,7 +126,7 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     MatToolbarModule,
     MatTooltipModule
   ],
-  providers: [MatDatepickerModule, TokenService],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
