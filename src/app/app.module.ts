@@ -53,7 +53,7 @@ import { PersonalSkillsComponent } from "./profile/profile-details/personal-skil
 import { NotificationsComponent } from "./profile/profile-details/notifications/notifications.component";
 import { ReviewsComponent } from "./profile/profile-details/reviews/reviews.component";
 import { SettingsComponent } from "./profile/profile-details/settings/settings.component";
-import { ProfileRoutingModule } from './profile-routing.module';
+import { ProfileRoutingModule } from './profile/profile-routing.module';
 
 @NgModule({
   declarations: [
