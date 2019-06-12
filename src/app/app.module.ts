@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { EditProfileComponent } from "./profile/profile-details/edit-profile/edit-profile.component";
+
 
 import {
   MatAutocompleteModule,
@@ -48,14 +48,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { FooterComponent } from "./shared/footer/footer.component";
-import { ProfileModule } from "./profile/profile.module";
 import { ProfileCardComponent } from "./profile/profile-card/profile-card.component";
-import { PersonalInfoComponent } from "./profile/profile-details/personal-info/personal-info.component";
-import { PersonalSkillsComponent } from "./profile/profile-details/personal-skills/personal-skills.component";
-import { NotificationsComponent } from "./profile/profile-details/notifications/notifications.component";
-import { ReviewsComponent } from "./profile/profile-details/reviews/reviews.component";
-import { SettingsComponent } from "./profile/profile-details/settings/settings.component";
-import { ProfileRoutingModule } from './profile/profile-routing.module';
 import { TokenService } from './authentication/token.service';
 import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
 
@@ -69,15 +62,9 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     SignupComponent,
     ClientSignupComponent,
     ProfileCardComponent,
-    PersonalInfoComponent,
-    PersonalSkillsComponent,
-    NotificationsComponent,
-    ReviewsComponent,
-    SettingsComponent,
-    EditProfileComponent
+
   ],
   imports: [
-    ProfileModule,
     AngularFontAwesomeModule,
     BrowserModule,
     MatFormFieldModule,
@@ -97,7 +84,6 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
-    ProfileRoutingModule
   ],
   exports: [
     MatAutocompleteModule,

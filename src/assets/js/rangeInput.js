@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('click', () => {
     const container = document.querySelector('.input-range-container');
 
 
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('click', () => {
     const container = document.querySelector('.input-range-container-2');
 
     const rangeLower = document.querySelector('input[name="range-lower-2"]');
