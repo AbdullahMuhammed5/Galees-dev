@@ -1,6 +1,6 @@
     @import '../../../assets/scss/_variables';
     @import '../../../assets/scss/mixins';
-header {
+    header {
         @include background-img('../../../assets/img/profilesheader.png', cover, center, no-repeat);
         margin-top: -4.5rem;
         main {
@@ -331,4 +331,38 @@ header {
     .page-item.active .page-link {
         background: $primary-color;
         color: $white !important;
+    }
+    
+    .price-label {
+        text-align: left;
+        margin-top: 0.75rem;
+        &.min {
+            text-align: right;
+        }
+    }
+    
+    .value-label {
+        position: relative;
+        bottom: -25px;
+        white-space: nowrap;
+        left: -50%;
+        text-shadow: none;
+        transition: text-shadow 100ms ease-in;
+    }
+    
+    .slider-handle {
+        outline: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        &.is-dragging {
+            .valueLabel {
+                text-shadow: 0px 0px 2px gray;
+            }
+        }
+    }
+    
+    ngb-rating {
+        color: #FFCC00;
+        font-size: 2.6rem;
     }

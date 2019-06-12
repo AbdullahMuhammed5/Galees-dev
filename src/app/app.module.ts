@@ -1,12 +1,13 @@
-import { EditProfileComponent } from "./profile/profile-details/edit-profile/edit-profile.component";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { ReactiveFormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { EditProfileComponent } from './profile/profile-details/edit-profile/edit-profile.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -38,21 +39,26 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule
-} from "@angular/material";
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatRadioModule } from "@angular/material/radio";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { NavbarComponent } from "./shared/navbar/navbar.component";
-import { HeaderComponent } from "./shared/header/header.component";
-import { FooterComponent } from "./shared/footer/footer.component";
-import { ProfileModule } from "./profile/profile.module";
-import { ProfileCardComponent } from "./profile/profile-card/profile-card.component";
-import { PersonalInfoComponent } from "./profile/profile-details/personal-info/personal-info.component";
-import { PersonalSkillsComponent } from "./profile/profile-details/personal-skills/personal-skills.component";
-import { NotificationsComponent } from "./profile/profile-details/notifications/notifications.component";
-import { ReviewsComponent } from "./profile/profile-details/reviews/reviews.component";
-import { SettingsComponent } from "./profile/profile-details/settings/settings.component";
+} from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { ProfileModule } from './profile/profile.module';
+import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
+import { PersonalInfoComponent } from './profile/profile-details/personal-info/personal-info.component';
+import { PersonalSkillsComponent } from './profile/profile-details/personal-skills/personal-skills.component';
+import { NotificationsComponent } from './profile/profile-details/notifications/notifications.component';
+import { ReviewsComponent } from './profile/profile-details/reviews/reviews.component';
+import { SettingsComponent } from './profile/profile-details/settings/settings.component';
 import { ProfileRoutingModule } from './profile-routing.module';
+import { SliderModule } from 'angular-double-slider';
+import { Ng5SliderModule } from 'ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FilterPipe } from './filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -66,9 +72,14 @@ import { ProfileRoutingModule } from './profile-routing.module';
     NotificationsComponent,
     ReviewsComponent,
     SettingsComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FilterPipe
   ],
   imports: [
+    NgbModule,
+    Ng5SliderModule,
+    SliderModule,
+    FormsModule,
     ProfileModule,
     AngularFontAwesomeModule,
     BrowserModule,
@@ -127,4 +138,4 @@ import { ProfileRoutingModule } from './profile-routing.module';
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

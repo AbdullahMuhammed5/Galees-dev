@@ -51,6 +51,15 @@ body {
     background: $milk;
 }
 
+// Range Input 
+.ng5-slider .ng5-slider-pointer {
+    background: $primary-color !important;
+}
+
+.ng5-slider .ng5-slider-selection {
+    background: $primary-color !important;
+}
+
 .mat-step-header.cdk-keyboard-focused,
 .mat-step-header.cdk-program-focused,
 .mat-step-header:hover {
