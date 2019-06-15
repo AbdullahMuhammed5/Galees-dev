@@ -11,7 +11,7 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
   { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
@@ -33,8 +33,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class PersonalSkillsComponent implements OnInit {
   profiles;
-  displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  profiles2;
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource;
   selection = new SelectionModel<PeriodicElement>(true, []);
 
   /** Whether the number of selected elements matches the total number of rows. */
@@ -45,33 +46,33 @@ export class PersonalSkillsComponent implements OnInit {
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
-  }
+  // masterToggle() {
+  //   this.isAllSelected() ?
+  //     this.selection.clear() :
+  //     this.dataSource.data.forEach(row => this.selection.select(row));
+  // }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: PeriodicElement): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
-    }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
-  }
+  // checkboxLabel(row?: PeriodicElement): string {
+  //   if (!row) {
+  //     return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+  //   }
+  //   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+  // }
 
 
-  removeSelectedRows() {
-    let selectedRows = this.selection.selected.sort((a, b) => { return b.position - a.position });
+  // removeSelectedRows() {
+  //   let selectedRows = this.selection.selected.sort((a, b) => { return b.position - a.position });
 
-    let ds = this.dataSource.data; //take a copy
+  //   let ds = this.dataSource.data; //take a copy
 
-    selectedRows.forEach(item => {
-      ds.splice(item.position - 1, 1); //splice out the selected rows
-    });
-    this.dataSource.data = ds;  //set the datasource so it fires the refresh
+  //   selectedRows.forEach(item => {
+  //     ds.splice(item.position - 1, 1); //splice out the selected rows
+  //   });
+  //   this.dataSource.data = ds;  //set the datasource so it fires the refresh
 
-    this.selection = new SelectionModel;
-  }
+  //   this.selection = new SelectionModel;
+  // }
   constructor(private http: HttpClient) { }
 
 
@@ -81,6 +82,7 @@ export class PersonalSkillsComponent implements OnInit {
       res => {
         console.log(res);
         this.profiles = res;
+        this.dataSource = new MatTableDataSource(this.profiles)
       }
     );
   }
