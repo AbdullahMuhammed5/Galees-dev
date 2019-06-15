@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -52,8 +52,8 @@ export class ProfileCardComponent implements OnInit {
   isBabySitter: string;
   isNany: string;
   isElderlySitter: string;
-  isFemale:string;
-  isMale:string;
+  isFemale: string;
+  isMale: string;
   isFac = 0;
   isSmoker = 0;
   isHasChild = 0;
@@ -62,6 +62,7 @@ export class ProfileCardComponent implements OnInit {
 
 
   profiles;
+  display = [];
   rev(event) {
     console.log(event.target.value);
   }
@@ -88,11 +89,110 @@ export class ProfileCardComponent implements OnInit {
   //     hasCar: new FormControl(''),
   //     hasRev: new FormControl(''),
   //   })
+
   // })
+  pro;
+
+
+  spec: FormGroup;
+  gender: FormGroup;
+
+  filters = {
+    career: [],
+    gender: [],
+  }
+
+
+  apply() {
+    var arr = [];
+    this.profiles.filter(ele => {
+      if (this.minAge <= ele.age && this.maxAge >= ele.age) {
+        arr.push(ele);
+      }
+    })
+    console.log(arr);
+    this.pro = arr;
+    // console.log(this.pro);
+
+  }
+
+
+
+  updateType(e) {
+    if (e.checked) {
+      if (this.filters.career.length === 0) {
+        this.filters.career.push(e.source.value);
+        console.log(this.filters.career);
+      }
+      else {
+        if (this.pro.career.includes(e.source.value)) {
+        }
+        else {
+          this.filters.career.push(e.source.value);
+        }
+      }
+      // console.log(this.filters.gender);
+      this.display = this.multiFilter(this.pro, this.filters);
+    }
+    else {
+      this.filters.career.splice(this.filters.career.indexOf(e.source.value), 1);
+      this.display = this.multiFilter(this.pro, this.filters);
+      console.log(this.filters.career);
+    }
+  }
+
+  multiFilter(profiles, filters) {
+    const filterKeys = Object.keys(filters);
+    let result = profiles.filter((item) => {
+      return filterKeys.every(key => {
+        if (!filters[key].length) return profiles;
+        return filters[key].includes(item[key]);
+      });
+    });
+    return result;
+  }
+
+
+  updateGender(e) {
+    if (e.checked) {
+      if (this.filters.gender.length === 0) {
+        this.filters.gender.push(e.source.value);
+      }
+      else {
+        if (this.filters.gender.includes(e.source.value)) {
+        }
+        else {
+          this.filters.gender.push(e.source.value);
+        }
+      }
+      // console.log(this.filters.gender);
+      this.display = this.multiFilter(this.pro, this.filters);
+    }
+    else {
+      this.filters.gender.splice(this.filters.gender.indexOf(e.source.value), 1);
+      this.display = this.multiFilter(this.pro, this.filters);
+    }
+
+  }
 
 
   ngOnInit() {
-    this.babySitter.valueChanges.subscribe( value => this.isBabySitter = value ? 'Baby Sitter' : undefined );
+    this.spec = new FormGroup({
+
+      fac: new FormControl(''),
+      smoker: new FormControl(''),
+      hasCar: new FormControl(''),
+      hasChild: new FormControl(''),
+      hasRev: new FormControl(''),
+    });
+
+    this.gender = new FormGroup({
+      female: new FormControl(''),
+      male: new FormControl(''),
+    });
+
+
+    this.babySitter.valueChanges.subscribe(value => this.isBabySitter = value ? 'Baby Sitter' : undefined);
     this.nanny.valueChanges.subscribe(value => {
       if (value) {
         this.isNany = 'Nany';
@@ -176,32 +276,32 @@ export class ProfileCardComponent implements OnInit {
       for (let prop of key) {
         console.log(prop);
       }
-}
+    }
 
 
-// arr = ['Baby Sitter', 'Eldery Sitter', 'Nany']
-// temp1.map(function(elem){
-//   arr.map((item)=>{
-//     if(elem.career == "Baby Sitter"){
-//       return elem.career;	
-//     }
-//   })
-// })
+    // arr = ['Baby Sitter', 'Eldery Sitter', 'Nany']
+    // temp1.map(function(elem){
+    //   arr.map((item)=>{
+    //     if(elem.career == "Baby Sitter"){
+    //       return elem.career;	
+    //     }
+    //   })
+    // })
 
-// arr = ['Baby Sitter']
-// temp1.map(function(elem){
-//   return arr.map((item)=>{
-//     if(elem.career == item){
-//       return elem.career;	
-//     }
-//   })
-// }).filter((profile) => profile[0] !== undefined)
+    // arr = ['Baby Sitter']
+    // temp1.map(function(elem){
+    //   return arr.map((item)=>{
+    //     if(elem.career == item){
+    //       return elem.career;	
+    //     }
+    //   })
+    // }).filter((profile) => profile[0] !== undefined)
 
 
     // console.log(arr);
 
     // this.profiles = arr;
-  } 
+  }
 
   // filteredByAge (min, max) -> array of objects;
   // SELECT `name` FROM `users` where TIMESTAMPDIFF(YEAR, users.birthdate, CURDATE()) BETWEEN 22 and 45
@@ -209,7 +309,9 @@ export class ProfileCardComponent implements OnInit {
   // if(!male && !female){
 
   // } else{
-    
+
   // }
+
 }
 
+;

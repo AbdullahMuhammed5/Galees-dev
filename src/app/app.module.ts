@@ -1,13 +1,16 @@
-import { EditProfileComponent } from './profile/profile-details/edit-profile/edit-profile.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
+
+
+// Import Angular Material 
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -38,78 +41,38 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
 } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { ProfileModule } from './profile/profile.module';
-import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
-import { PersonalInfoComponent } from './profile/profile-details/personal-info/personal-info.component';
-import { PersonalSkillsComponent } from './profile/profile-details/personal-skills/personal-skills.component';
-import { NotificationsComponent } from './profile/profile-details/notifications/notifications.component';
-import { ReviewsComponent } from './profile/profile-details/reviews/reviews.component';
-import { SettingsComponent } from './profile/profile-details/settings/settings.component';
-import { ProfileRoutingModule } from './profile-routing.module';
-import { SliderModule } from 'angular-double-slider';
 import { Ng5SliderModule } from 'ng5-slider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FilterPipe } from './filter.pipe';
 
+
+// Import OwL
+
+import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HeaderComponent,
-    FooterComponent,
-    ProfileCardComponent,
-    PersonalInfoComponent,
-    PersonalSkillsComponent,
-    NotificationsComponent,
-    ReviewsComponent,
-    SettingsComponent,
-    EditProfileComponent,
-    FilterPipe
+    ProfileCardComponent
   ],
   imports: [
     NgbModule,
     Ng5SliderModule,
-    SliderModule,
     FormsModule,
-    ProfileModule,
-    AngularFontAwesomeModule,
-    BrowserModule,
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatRadioModule,
-    MatDatepickerModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatStepperModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ProfileRoutingModule
-  ],
-  exports: [
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
@@ -122,7 +85,6 @@ import { FilterPipe } from './filter.pipe';
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatRadioModule,
     MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
@@ -130,10 +92,18 @@ import { FilterPipe } from './filter.pipe';
     MatSlideToggleModule,
     MatSnackBarModule,
     MatSortModule,
+    MatStepperModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    BrowserModule,
+
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
