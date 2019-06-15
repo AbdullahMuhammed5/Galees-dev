@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { OwlModule } from 'ngx-owl-carousel';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -15,7 +17,7 @@ import {
   MatChipsModule,
   MatDialogModule,
   MatDividerModule,
-  MatExpansionModule,
+  // MatExpansionModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
@@ -44,17 +46,62 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { PersonalInfoComponent } from './profiles/personal-info/personal-info.component';
+import { NotificationsComponent } from './profiles/notifications/notifications.component';
+import { SettingsComponent } from './profiles/settings/settings.component';
+import { ReviewsComponent } from './profiles/reviews/reviews.component';
+import { EditProfileComponent } from './profiles/edit-profile/edit-profile.component';
+import { SideNavComponent } from './profiles/side-nav/side-nav.component';
+import { MatOptionModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+// import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+// import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+// import { HttpClientModule } from '@angular/common/http';
+// import { TagInputModule } from 'ngx-chips';
+
+
 
 
 
 @NgModule({
   declarations: [
+    // NgbModal,
     AppComponent,
     NavbarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    PersonalInfoComponent,
+    ProfileSitterComponent,
+    NotificationsComponent,
+    SettingsComponent,
+    ReviewsComponent,
+    EditProfileComponent,
+    SideNavComponent,
+    ProfileComponent,
+    LoginComponent,
   ],
   imports: [
+    // BsModalService,
+    // BsModalRef,
+    // NgbModalModule,
+    // NgbModalConfig,
+    // NgbModal,
+    MatCheckboxModule,
+    ModalModule,
+    MatExpansionModule,
+    MatOptionModule,
     AngularFontAwesomeModule,
     BrowserModule,
     MatFormFieldModule,
@@ -72,7 +119,12 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatStepperModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    OwlModule,
+    HttpClientModule,
+    NgbModule,
+    NgbPopoverModule,
+    NgbDropdownModule
   ],
   exports: [
 
@@ -108,6 +160,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    NgbDropdownModule,
+    MatCheckboxModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

@@ -1,0 +1,105 @@
+<section id="notifications" class="mt-3">
+    <div class="card">
+        <mat-accordion *ngFor = "let result of res">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="p-4">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="../../../../assets/img/kamel.jpg" class="img-fluid" alt="...">
+                            </div>
+                            <div class="col-9 row">
+                                <div class="col-12">
+                                    <span class="m-0">10 hours</span>
+                                </div>
+                                <div class="col-12">
+                                    <h5 class="m-0">Alaa Dawabah</h5>
+                                </div>
+                                <div class="col-12">
+                                    <p> made a request for you</p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="mat-expansion-panel-body mt-5">
+                    <div class="row mt-3 align-items-baseline">
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">From : </h6>
+                            <span class="ml-4">{{result.from}}</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">To : </h6>
+                            <span class="ml-4">{{result.to}}</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">Num of hrs/day : </h6>
+                            <span class="ml-4">{{result.hoursPerDay}}</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">Phone : </h6>
+                            <span class="ml-4">{{result.phone}}</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">Address : </h6>
+                            <span class="ml-4">{{result.address}}</span>
+                        </div>
+                    </div>
+                    <p class="my-4">{{result.proposal}}</p>
+                </div>
+                <button class="btn float-right">Accept & Contact</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!-- <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="p-4">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="../../../../assets/img/kamel.jpg" class="img-fluid" alt="...">
+                            </div>
+                            <div class="col-9 row">
+                                <div class="col-12">
+                                    <span class="m-0">10 hours</span>
+                                </div>
+                                <div class="col-12">
+                                    <h5 class="m-0">Alaa Dawabah</h5>
+                                </div>
+                                <div class="col-12">
+                                    <p> made a request for you</p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="mat-expansion-panel-body mt-5">
+                    <div class="row mt-3 align-items-baseline">
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">From : </h6>
+                            <span class="ml-4">{{result.from}}</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">To : </h6>
+                            <span class="ml-4">result.</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">Num of hrs/day : </h6>
+                            <span class="ml-4">8 hours</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">Phone : </h6>
+                            <span class="ml-4">010225633301</span>
+                        </div>
+                        <div class="col-6 align-items-baseline">
+                            <h6 class="d-inline-block">Address : </h6>
+                            <span class="ml-4">Egypt, Alexandria, Sidi Gaber, 502 street</span>
+                        </div>
+                    </div>
+                    <p class="my-4">I need a babysitter for my children for 3 days. I have a girl 4 years and a little boy 2 years. Please contact me at any time, if you have any questions.</p>
+                </div>
+                <button class="btn float-right">Accept & Contact</button>
+            </mat-expansion-panel>
+        </mat-accordion> -->
+    </div>
+
+</section>

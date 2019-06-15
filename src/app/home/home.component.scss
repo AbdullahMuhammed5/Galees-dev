@@ -1,0 +1,272 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+/************************************   HEADER   ****************************************/
+.offset-6 {
+  margin-left: 0;
+}
+header {
+  @extend %sectionPadding;
+  // background-image: url("../../assets/images/home/header.png");
+  @include background-img($header, cover, center,no-repeat);
+  // @include font('OpenSans-Bold', $open-sans-bold );
+  // background-size: cover;
+}
+
+header {
+  @extend %sectionPadding;
+  color: $white;
+  h1 {
+    padding-top: 4rem;
+    padding-bottom: 1.5rem;
+    // @include font(OpenSans-Bold, "/assets/fonts/OpenSans-Bold.ttf");
+  }
+  p {
+    padding-bottom: 2rem;
+  }
+  .search {
+    input {
+      outline: none;
+      position: relative;
+      margin-bottom: 6rem;
+      border: none;
+      border-radius: 30px 30px;
+      padding: 0.5rem 0.25rem;
+      padding-right: 7rem;
+      background-color: $white;
+      filter: opacity(0.5);
+      &::placeholder {
+        padding-left: 0.75rem;
+        color: $primary-color;
+      }
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+        transition: all 0.2s ease-in-out;
+        background-color: $white;
+        color: $primary-color;
+        padding: 0, 0.25rem;
+        filter: opacity(1);
+        &::placeholder {
+          //  background-color: $white;
+          color: $primary-color;
+        }
+      }
+    }
+    i {
+      position: absolute;
+      left: 65%;
+      bottom: 28%;
+      color: $primary-color;
+    }
+  }
+}
+
+/****************************************************   HOW IT WORKS   *******************************************/
+
+.works {
+  background-color: $grey;
+  @extend %sectionPadding;
+  .sectionHeader {
+    @include sectionHeader($primary-color);
+    h3{
+      // @include font(OpenSans-Bold,url('/src/assets/fonts/OpenSans-Bold.ttf'));
+    }
+    
+  }
+  .card {
+    background-color: $white;
+    border: none;
+    border-radius: 20px;
+    padding: 35px 0;
+  }
+  .card img {
+    // padding-top: 20px;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .card-title {
+    color: $primary-color;
+  }
+  
+}
+
+/****************************************************  PROFILES  *******************************************/
+
+.profiles {
+  // background-image: url("../../assets/images/home/profiles.png");
+  @include background-img($profiles,cover,center,no-repeat);
+  background-size: cover;
+  padding: 150px 0;
+  color: $white;
+  .sectionHeader {
+    padding-top: 6rem;
+    @include sectionHeader($white);
+  }
+  .image--cover {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid $white;
+    object-fit: cover;
+    object-position: center right;
+  }
+  button{
+    @include btn($secondary-color, 20px 20px, $white, 0.5rem);
+  }
+}
+
+/****************************************************  SERVICES  *******************************************/
+
+.services {
+  @extend %sectionPadding;
+ 
+  .sectionHeader {
+    @include sectionHeader($primary-color);
+  }
+  .image--cover {
+    width: 350px;
+    height: 350px;
+    // border-radius: 50%;
+    // border: 3px solid $primary-color;
+    margin: 20px;
+    // object-fit: cover;
+    object-position: center right;
+  }
+  .row {
+    h3 {
+      color: $priper;
+      padding-bottom: 30px;
+    }
+    li {
+      color: $black;
+      padding-bottom: 15px;
+      list-style: none;
+    }
+    i {
+      padding-right: 10px;
+      font-size: 25px;
+      color: $icon-color;
+    }
+  }
+}
+
+
+/****************************************************  REVIEWS  *******************************************/
+
+
+.reviews{
+  // background-image: url('../../assets/images/home/reviews-bg1.png');
+  @include background-img($reviews,cover,center,no-repeat);
+  // background-size: cover;
+  @extend %sectionPadding;
+  // padding: 150px 0;
+  .sectionHeader{
+    @include sectionHeader($white);
+  }
+  .card{
+    border-radius: 1rem;
+    border: none;
+    width: 35rem;
+    .card-body {
+      flex: 1 1 auto;
+      padding: 1.25rem;
+      margin-left: 6rem;
+  }
+  }
+ .parent{
+   position:relative;
+   padding: 50px;
+   width:0;
+ 
+   
+ }
+  .image--cover {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    position:absolute;
+    margin: 20px;
+    object-fit: cover;
+    object-position: center right;
+    bottom: 3.25rem;
+    left: -3.75rem;
+    -webkit-box-shadow: 0px 3px 13px -3px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 3px 13px -3px rgba(255,255,255,1);
+    box-shadow: 0px 3px 13px -3px rgba(255,255,255,1);
+  }
+}
+.owl-nav{
+  text-align: right
+}
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.owl-carousel {
+  width: 90% !important;
+  margin: 10% auto;
+  padding: 100px;
+}
+ 
+.owl-carousel .owl-nav {
+  overflow: hidden;
+  height: 0px;
+}
+ 
+.owl-carousel .nav-btn {
+  height: 47px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 30% !important;
+  outline: none;
+}
+ 
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+ 
+// .owl-carousel .prev-slide {
+//   background: url('../../assets/images/home/girl6.jpg') no-repeat scroll 0 0;
+//   left: -33px;
+// }
+ 
+// .owl-carousel .next-slide {
+//   background: url('../../assets/images/home/girl6.jpg') no-repeat scroll -24px 0px;
+//   right: -33px;
+// }
+ 
+.owl-carousel .prev-slide:hover {
+  background-position: 0px -53px;
+}
+ 
+.owl-carousel .next-slide:hover {
+  background-position: -24px -53px;
+}
+
+
+
+/****************************************************   HOW IT IS EASY  *******************************************/
+
+.easy {
+  @extend %sectionPadding;
+  .sectionHeader {
+    @include sectionHeader($primary-color);
+  }
+  video {
+    border-radius: 15px 15px;
+    border: 10px solid $grey;
+    -webkit-box-shadow: 0px 4px 15px -2px rgba(154, 101, 234, 1);
+    -moz-box-shadow: 0px 4px 15px -2px rgba(154, 101, 234, 1);
+    box-shadow: 0px 4px 15px -2px rgba(154, 101, 234, 1);
+  }
+}

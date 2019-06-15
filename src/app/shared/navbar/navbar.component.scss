@@ -1,0 +1,49 @@
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixins.scss";
+nav {
+    @include background-color(grey);
+    ul {
+        li {
+            a {
+                color: black;
+                // @extend %link;
+            }
+        }
+    }
+}
+.card-body{
+    &:hover{
+        cursor: pointer;
+    }
+    &::after{
+       border-bottom: 3px solid black
+    }
+}
+.btn.btn-outline-primary{
+    background-color: transparent;
+    border:none;
+    color:$white;
+    position:relative;
+    outline: none;
+}
+.count{
+    position: absolute;
+    top: -9%;
+    right: 2%;
+}
+// i{
+//     position:absolute;
+//     right: 15%;
+//     top: 30%;
+//     margin-right: -11px;
+// }
+.dropdown-toggle::after {
+    display: none;
+    // margin-left: .255em;
+    // vertical-align: .255em;
+    // content: "/f0f3";
+    // border-top: .3em solid;
+    // border-right: .3em solid transparent;
+    // border-bottom: 0;
+    // border-left: .3em solid transparent;
+}
