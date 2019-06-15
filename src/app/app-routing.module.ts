@@ -1,25 +1,37 @@
-import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
-import { LoginComponent } from './authentication/login/login.component';
+
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
+import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
+import { NotificationsComponent } from './profiles/notifications/notifications.component';
+import { PersonalInfoComponent } from './profiles/personal-info/personal-info.component';
+import { EditProfileComponent } from './profiles/edit-profile/edit-profile.component';
+import { ReviewsComponent } from './profiles/reviews/reviews.component';
+import { SettingsComponent } from './profiles/settings/settings.component';
+
 
 
 const routes: Routes = [
-  {
-    path: '', component: LoginComponent
-  },
-  {
-    path: 'sitter-signup', component: SignupComponent
-  },
-  {
-    path: 'client-signup', component: ClientSignupComponent
-  },
-  {
-    path: 'login', component: LoginComponent
-  }
-];
+{
+  path: '', component: ProfileSitterComponent
+},
+    {
+      path: 'personal-info', component: PersonalInfoComponent
+    },
+    {
+      path: 'edit-profile', component: EditProfileComponent
+    },
+    {
+      path: 'notifications', component: NotificationsComponent
+    },
+    {
+      path: 'reviews', component: ReviewsComponent
+    },
+    {
+      path: 'settings', component: SettingsComponent
+    }
+] ;
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,13 +1,13 @@
-import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
-import { LoginComponent } from './authentication/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -17,7 +17,7 @@ import {
   MatChipsModule,
   MatDialogModule,
   MatDividerModule,
-  MatExpansionModule,
+  // MatExpansionModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
@@ -44,26 +44,54 @@ import {
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { TokenService } from './authentication/token.service';
-import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
+
+import { PersonalInfoComponent } from './profiles/personal-info/personal-info.component';
+import { NotificationsComponent } from './profiles/notifications/notifications.component';
+import { SettingsComponent } from './profiles/settings/settings.component';
+import { ReviewsComponent } from './profiles/reviews/reviews.component';
+import { EditProfileComponent } from './profiles/edit-profile/edit-profile.component';
+import { SideNavComponent } from './profiles/side-nav/side-nav.component';
+import { MatOptionModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
+
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+
+
+
 
 
 
 @NgModule({
   declarations: [
+    // NgbModal,
     AppComponent,
-    NavbarComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    SignupComponent,
-    ClientSignupComponent
 
+
+
+ 
+    PersonalInfoComponent,
+    ProfileSitterComponent,
+    NotificationsComponent,
+    SettingsComponent,
+    ReviewsComponent,
+    EditProfileComponent,
+    SideNavComponent,
+    ProfileComponent,
   ],
   imports: [
+    // BsModalService,
+    // BsModalRef,
+    // NgbModalModule,
+    // NgbModalConfig,
+    // NgbModal,
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatOptionModule,
     AngularFontAwesomeModule,
     BrowserModule,
     MatFormFieldModule,
@@ -82,10 +110,13 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule
+
+    MatCheckboxModule,
+
+    HttpClientModule,
+    NgbModule,
   ],
   exports: [
-
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -118,8 +149,10 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    NgbDropdownModule,
+    MatCheckboxModule
   ],
-  providers: [MatDatepickerModule, TokenService],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

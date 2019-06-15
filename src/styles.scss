@@ -1,5 +1,5 @@
-@import './assets/scss/_variables';
-@import './assets/scss/mixins';
+@import '../src/assets/scss/variables.scss';
+@import '../src/assets/scss/mixins.scss';
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -24,30 +24,30 @@ $galees-theme: mat-light-theme($galees-primary, $galees-accent, $galees-warn);
 
 /* You can add global styles to this file, and also import other style files */
 
-@font-face {
-    font-family: $openBold;
-    src: url(./assets/fonts/OpenSans-Bold.ttf);
-}
+// @font-face {
+//     font-family: $openBold;
+//     src: url(./assets/fonts/OpenSans-Bold.ttf);
+// }
 
-@font-face {
-    font-family: $openExtraBold;
-    src: url(./assets/fonts/OpenSans-ExtraBold.ttf);
-}
+// @font-face {
+//     font-family: $openExtraBold;
+//     src: url(./assets/fonts/OpenSans-ExtraBold.ttf);
+// }
 
-@font-face {
-    font-family: $openRegualr;
-    src: url(./assets/fonts/OpenSans-Regular.ttf);
-}
+// @font-face {
+//     font-family: $openRegualr;
+//     src: url(./assets/fonts/OpenSans-Regular.ttf);
+// }
 
-@font-face {
-    font-family: $openSemiBold;
-    src: url(./assets/fonts/OpenSans-SemiBold.ttf);
-}
+// @font-face {
+//     font-family: $openSemiBold;
+//     src: url(./assets/fonts/OpenSans-SemiBold.ttf);
+// }
 
 html,
 body {
     height: 100%;
-    font-family: $open;
+    // font-family: $open;
     background: $milk;
 }
 
@@ -68,7 +68,7 @@ body {
 
 // Circle text 
 .ng-star-inserted {
-    @include typoStyle($openExtraBold, 1rem, 900);
+    // @include typoStyle($openExtraBold, 1rem, 900);
 }
 
 //Button 
@@ -89,7 +89,7 @@ body {
 
 .mat-step-header .mat-step-label.mat-step-label-active {
     color: $primary-color;
-    @include typoStyle($open, .8rem, 900);
+    // @include typoStyle($open, .8rem, 900);
 }
 
 .mat-step-header .mat-step-icon-selected,
@@ -105,7 +105,7 @@ body {
 .mat-input-element {
     color: $primary-color !important;
     font-size: .8rem !important;
-    font-family: $open !important;
+    // font-family: $open !important;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-label {
@@ -158,14 +158,14 @@ mat-icon {
 // Hint for Inputs 
 .mat-hint {
     color: #D8000C !important;
-    @include typoStyle($open, .7rem, 500);
+    // @include typoStyle($open, .7rem, 500);
 }
 
 .backBtn {
     border-radius: 50px;
     width: 9.29rem;
     height: 2.714rem;
-    @include typoStyle($openSemiBold, 1rem, 800);
+    // @include typoStyle($openSemiBold, 1rem, 800);
     margin: $auto-margin;
     background: none;
     border: 2px solid $priper !important;
