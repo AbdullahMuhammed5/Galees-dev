@@ -103,18 +103,18 @@ export class ProfileCardComponent implements OnInit {
   }
 
 
-  apply() {
-    var arr = [];
-    this.profiles.filter(ele => {
-      if (this.minAge <= ele.age && this.maxAge >= ele.age) {
-        arr.push(ele);
-      }
-    })
-    console.log(arr);
-    this.pro = arr;
-    // console.log(this.pro);
+  // apply() {
+  //   var arr = [];
+  //   this.profiles.filter(ele => {
+  //     if (this.minAge <= ele.age && this.maxAge >= ele.age) {
+  //       arr.push(ele);
+  //     }
+  //   })
+  //   console.log(arr);
+  //   this.pro = arr;
+  //   // console.log(this.pro);
 
-  }
+  // }
 
 
 
@@ -125,18 +125,18 @@ export class ProfileCardComponent implements OnInit {
         console.log(this.filters.career);
       }
       else {
-        if (this.pro.career.includes(e.source.value)) {
+        if (this.filters.career.includes(e.source.value)) {
         }
         else {
           this.filters.career.push(e.source.value);
         }
       }
       // console.log(this.filters.gender);
-      this.display = this.multiFilter(this.pro, this.filters);
+      this.display = this.multiFilter(this.profiles, this.filters);
     }
     else {
       this.filters.career.splice(this.filters.career.indexOf(e.source.value), 1);
-      this.display = this.multiFilter(this.pro, this.filters);
+      this.display = this.multiFilter(this.profiles, this.filters);
       console.log(this.filters.career);
     }
   }
@@ -166,11 +166,11 @@ export class ProfileCardComponent implements OnInit {
         }
       }
       // console.log(this.filters.gender);
-      this.display = this.multiFilter(this.pro, this.filters);
+      this.display = this.multiFilter(this.profiles, this.filters);
     }
     else {
       this.filters.gender.splice(this.filters.gender.indexOf(e.source.value), 1);
-      this.display = this.multiFilter(this.pro, this.filters);
+      this.display = this.multiFilter(this.profiles, this.filters);
     }
 
   }
