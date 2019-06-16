@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-settings',
@@ -9,9 +10,10 @@ import { CustomValidators } from 'ng2-validation';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private Http: HttpClient) { }
   passwordForm: FormGroup;
   emailForm: FormGroup;
+
   ngOnInit() {
     // Make Instant from Reactive Form
     // tslint:disable-next-line: max-line-length
@@ -30,26 +32,59 @@ export class SettingsComponent implements OnInit {
       confirmEmail: ['', [Validators.required, CustomValidators.equalTo(newMail)]]
     });
   }
+
+
   /* -------------------------- Password Alert --------------------------*/
-  updatePassword(myForm) {
-    Swal.fire({
-      position: 'center',
-      type: 'success',
-      title: 'Your password has been changed successfully',
-      showConfirmButton: false,
-      timer: 1500
+
+
+  
+  updatePassword(updatePassword) {
+
+    // updatedPassword.email  = this.userService.currentUser.email;
+
+    this.Http.put('backend url', updatePassword).subscribe(res => {
+      if (res.status == 200) {
+        Swal.fire({
+          position: 'center',
+          type: 'success',
+          title: 'Your password has been changed successfully',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
     });
+
   }
+
+
   /* -------------------------- Email Alert --------------------------*/
+
+
   updateEmail(emailForm) {
-    Swal.fire({
+
+    // emailPassword.email  = this.userService.currentUser.email;
+    // Swal.fire({
+    //   position: 'center',
+    //   type: 'success',
+    //   title: 'Your email has been changed successfully',
+    //   showConfirmButton: false,
+    //   timer: 1500
+    // });
+    this.Http.put('backendUrl', emailForm).subscribe(
+      res => 
+      if ( res.status == 400) {
+      Swal.fire({
       position: 'center',
       type: 'success',
       title: 'Your email has been changed successfully',
       showConfirmButton: false,
       timer: 1500
     });
+      }
+    );
   }
+
+
   /* -------------------------- Delete Alert --------------------------*/
   deleteAccount(e) {
     e.preventDefault();
