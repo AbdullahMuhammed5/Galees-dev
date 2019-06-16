@@ -1,3 +1,4 @@
+import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
@@ -52,7 +53,8 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
 import { Ng5SliderModule } from 'ng5-slider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
-
+import { OwlModule } from 'ngx-owl-carousel';
+import { LoginComponent } from './authentication/login/login.component';
 
 @NgModule({
   declarations: [
@@ -61,10 +63,13 @@ import { ProfileCardComponent } from './profile/profile-card/profile-card.compon
     NavbarComponent,
     FooterComponent,
     SignupComponent,
+    LoginComponent,
+    ClientSignupComponent,
 
 
   ],
   imports: [
+    OwlModule,
     NgbModule,
     Ng5SliderModule,
     FormsModule,

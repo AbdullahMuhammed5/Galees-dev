@@ -1,3 +1,4 @@
+import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
 import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
 import { LoginComponent } from './authentication/login/login.component';
 
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
+  },
+  {
+    path: 'profile', component: ProfileCardComponent
   }
 ];
 
