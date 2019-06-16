@@ -1,3 +1,5 @@
+import { HomeComponent } from './shared/home/home.component';
+import { AuthService } from './authentication/auth.service';
 import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -6,11 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // Import Angular Material 
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -20,7 +23,7 @@ import {
   MatChipsModule,
   MatDialogModule,
   MatDividerModule,
-  MatExpansionModule,
+  // MatExpansionModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
@@ -56,6 +59,21 @@ import { ProfileCardComponent } from './profile/profile-card/profile-card.compon
 import { OwlModule } from 'ngx-owl-carousel';
 import { LoginComponent } from './authentication/login/login.component';
 
+import { PersonalInfoComponent } from './profiles/personal-info/personal-info.component';
+import { NotificationsComponent } from './profiles/notifications/notifications.component';
+import { SettingsComponent } from './profiles/settings/settings.component';
+import { ReviewsComponent } from './profiles/reviews/reviews.component';
+import { EditProfileComponent } from './profiles/edit-profile/edit-profile.component';
+import { SideNavComponent } from './profiles/side-nav/side-nav.component';
+import { MatOptionModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchPipe } from './search.pipe';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,8 +83,15 @@ import { LoginComponent } from './authentication/login/login.component';
     SignupComponent,
     LoginComponent,
     ClientSignupComponent,
-
-
+    PersonalInfoComponent,
+    ProfileSitterComponent,
+    NotificationsComponent,
+    SettingsComponent,
+    ReviewsComponent,
+    EditProfileComponent,
+    SideNavComponent,
+    HomeComponent,
+    SearchPipe
   ],
   imports: [
     OwlModule,
@@ -74,6 +99,11 @@ import { LoginComponent } from './authentication/login/login.component';
     Ng5SliderModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatOptionModule,
+    AngularFontAwesomeModule,
+    BrowserModule,
     MatFormFieldModule,
     MatRadioModule,
     MatDatepickerModule,
@@ -90,10 +120,13 @@ import { LoginComponent } from './authentication/login/login.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule
+
+    MatCheckboxModule,
+
+    HttpClientModule,
+    NgbModule,
   ],
   exports: [
-
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -125,14 +158,15 @@ import { LoginComponent } from './authentication/login/login.component';
     MatToolbarModule,
     MatTooltipModule,
     BrowserModule,
-
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    NgbDropdownModule,
+    MatCheckboxModule
   ],
-  providers: [MatDatepickerModule, TokenService],
+  providers: [MatDatepickerModule, AuthService, TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

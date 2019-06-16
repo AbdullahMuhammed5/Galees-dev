@@ -10,12 +10,17 @@ export class HomeComponent implements OnInit {
   profiles;
   constructor(private http: HttpClient) { }
   carouselOptions;
+  fixedSitter;
+
   ngOnInit() {
     this.http.get('http://localhost:8000/get-profile-card').subscribe(
       // res => this.profiles = res
       res => {
         console.log(res);
         this.profiles = res;
+        this.fixedSitter = this.profiles.slice(0, 4);
+        console.log(this.fixedSitter);
+
       }
     );
     this.carouselOptions = {
@@ -44,5 +49,6 @@ export class HomeComponent implements OnInit {
       }
     };
   }
+
 
 }
