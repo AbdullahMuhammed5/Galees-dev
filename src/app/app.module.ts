@@ -3,8 +3,7 @@ import { CareersComponent } from './shared/careers/careers.component';
 import { HomeComponent } from './shared/home/home.component';
 import { AuthService } from './authentication/auth.service';
 import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+;
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -72,9 +71,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchPipe } from './search.pipe';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderComponent } from './order/order.component';
-
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @NgModule({
@@ -100,6 +100,7 @@ import { OrderComponent } from './order/order.component';
     OrderComponent
   ],
   imports: [
+    NgxPaginationModule,
     OwlModule,
     NgbModule,
     Ng5SliderModule,

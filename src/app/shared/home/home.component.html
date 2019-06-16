@@ -14,7 +14,7 @@
 <div class="container">
     <div class="container-fluid">
         <div class="row" *ngIf="searchActivited === false">
-            <div class="col-xl-3 col-md-6 col-xs-12" *ngFor="let sitter of fixedSitter">
+            <div class="col-xl-3 col-md-6 col-xs-12" *ngFor="let sitter of fixedSitter | paginate: { itemsPerPage: 4, currentPage: p }">
                 <div class="card-sitter p-4 text-center">
                     <p class="price text-right m-0">$ {{sitter.hourlyRate}} /hr
 
@@ -35,12 +35,13 @@
                     </div>
                 </div>
             </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
 
 
 
         <div class="row" *ngIf="searchActivited === true">
-            <div class="col-xl-3 col-md-6 col-xs-12" *ngFor="let sitter of profiles | search: sitter">
+            <div class="col-xl-3 col-md-6 col-xs-12" *ngFor="let sitter of profiles | search: sitter | paginate: { itemsPerPage: 4, currentPage: p }">
                 <div class="card-sitter p-4 text-center">
                     <p class="price text-right m-0">$ {{sitter.hourlyRate}} /hr
 
@@ -61,6 +62,7 @@
                     </div>
                 </div>
             </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </div>
