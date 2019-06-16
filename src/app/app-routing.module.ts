@@ -43,23 +43,25 @@ const routes: Routes = [
     path: 'profile', component: ProfileCardComponent
   },
   {
-    path: 'sitter', component: ProfileSitterComponent
+    path: 'sitter', component: ProfileSitterComponent , children : [
+      {
+        path: 'personal-info', component: PersonalInfoComponent
+      },
+      {
+        path: 'edit-profile', component: EditProfileComponent
+      },
+      {
+        path: 'notifications', component: NotificationsComponent
+      },
+      {
+        path: 'reviews', component: ReviewsComponent
+      },
+      {
+        path: 'settings', component: SettingsComponent
+      },
+    ]
   },
-  {
-    path: 'personal-info', component: PersonalInfoComponent
-  },
-  {
-    path: 'edit-profile', component: EditProfileComponent
-  },
-  {
-    path: 'notifications', component: NotificationsComponent
-  },
-  {
-    path: 'reviews', component: ReviewsComponent
-  },
-  {
-    path: 'settings', component: SettingsComponent
-  },
+  
   {
     path: 'order', component: OrderComponent
   }
