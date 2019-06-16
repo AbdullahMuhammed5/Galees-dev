@@ -1,6 +1,0 @@
-@import '../../../../assets/scss/_variables';
-@import '../../../../assets/scss/_mixins';
-.hours {
-    color: #818181;
-    @include typoStyle($open, .8rem, 500);
-}

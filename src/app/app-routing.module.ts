@@ -1,3 +1,4 @@
+import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
 import { CareersComponent } from './shared/careers/careers.component';
 import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
 import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
@@ -43,7 +44,10 @@ const routes: Routes = [
     path: 'profile', component: ProfileCardComponent
   },
   {
-    path: 'sitter', component: ProfileSitterComponent , children : [
+    path: 'profile-details', component: ProfileDetailsComponent
+  },
+  {
+    path: 'sitter', component: ProfileSitterComponent, children: [
       {
         path: 'personal-info', component: PersonalInfoComponent
       },
@@ -61,7 +65,7 @@ const routes: Routes = [
       },
     ]
   },
-  
+
   {
     path: 'order', component: OrderComponent
   }

@@ -75,11 +75,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderComponent } from './order/order.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProfileDetailsComponent,
     ProfileCardComponent,
     NavbarComponent,
     FooterComponent,
@@ -97,7 +99,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     SideNavComponent,
     HomeComponent,
     SearchPipe,
-    OrderComponent
+    OrderComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     NgxPaginationModule,
