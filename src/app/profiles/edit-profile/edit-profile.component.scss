@@ -3,7 +3,8 @@
 //Signup Compoenet
 #signup {
     h2 {
-        // @extend %priper-title-with-line;
+        @include typoStyle($openSemiBold, 1rem, 900);
+        color: $primary-color;
     }
     i {
         font-size: 1.5rem;
@@ -11,20 +12,20 @@
         color: $icon-color;
     }
     label {
-        // @include typoStyle($openSemiBold, 1rem, 900);
+        @include typoStyle($openSemiBold, 1rem, 900);
     }
     input,
     select {
         border-radius: 12px;
         border: 1px solid #707070;
         color: #707070;
-        // @include typoStyle($openRegualr, 1rem, 500);
+        @include typoStyle($openRegualr, 1rem, 500);
     }
     .addMore {
         background: 0;
         border: 0;
         outline: 0;
-        // @include typoStyle($openRegualr, .8rem, 500);
+        @include typoStyle($openRegualr, .8rem, 500);
         color: $primary-color;
     }
     textarea {
@@ -33,10 +34,10 @@
         border: 1px solid #707070;
         height: 8rem;
         color: #707070;
-        // @include typoStyle($openRegualr, 1rem, 500);
+        @include typoStyle($openRegualr, 1rem, 500);
     }
     .saveChanges {
-        // @extend %primary-btn;
+        @extend %primary-btn;
         margin: .5rem auto;
         border: 0;
         padding: .5rem 1.2rem;
@@ -48,7 +49,7 @@
         left: 2px !important;
         height: 20px !important;
         width: 20px !important;
-        // @include border(1px, solid, #ddd);
+        @include border(1px, solid, #ddd);
         border-radius: 25%;
         &::after {
             content: "";
@@ -73,7 +74,7 @@
         margin-top: 1.8rem;
         margin-left: .5rem;
         color: #333;
-        // @include typoStyle($open, .8rem, 100);
+        @include typoStyle($open, .8rem, 100);
         position: relative;
         left: -89px;
         top: 15px;

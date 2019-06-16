@@ -1,51 +1,23 @@
+      //vendors
+      $vendors: "-webkit",
+      "-moz-",
+      "-o-",
+      "";
+      //layout
       $auto-margin: 0 auto;
-      
-      ///////////////////  COLORS  ////////////////////////
-      $milk: #e8e8e8;
-      $open: "Open Sans";
+      //colors & BGcolors
       $primary-color: #591AB4;
       $secondary-color: #28F29A;
       $icon-color: #35C6BC;
       $priper: #9B65EA;
-      $grey: #FAFAFA;
-      $black: #6E6E6E;
+      $grey: #707070;
+      $black: #000;
+      $milk: #FAFAFA;
       $white: #FFF;
-      $middle-grey:#e8e8e8;
-      $dark-grey:#666666;
-
-
-      ///////////////////  BACKGORUND IMAGES  ////////////////////////
-
-
-
-                                           //////////  HOME PAGE  ////////////
-                                           
-
-      $header: url('/assets/images/home/header.png');
-      $profiles: url('/assets/images/home/profiles.png');
-      $reviews:  url('/assets/images/home/reviews-bg1.png');
-      $subscribe:  url('/assets/images/subscribe/subscribe.png');
-
-
-                                          /////////  SIGNUP PAGE   ////////////
-
-
-   
-      $foot:url('../images/signup/foot.png');
-
-
-
-                                          /////////  PROFILE DETAILS   ////////////
-
-      $vendors: "-webkit",
-                  "-moz-",
-                  "-o-",
-                  "";
-
-
-      ///////////////////  FONTS  ////////////////////////
-
-      $open-sans-extra-bold: url('/assets/fonts/OpenSans-ExtraBold.ttf');
-      $open-sans-bold: url('/assets/fonts/OpenSans-Bold.ttf');
-      $open-sans-semi-bold: url('/assets/fonts/OpenSans-SemiBold.ttf');
-      $open-sans-regular: url('/assets/fonts/OpenSans-Regular.ttf');
+      //fonts
+      $open: "Open Sans";
+      //imgs Sources
+      $openBold: "../fonts/OpenSans-Bold.ttf";
+      $openSemiBold: "../fonts/OpenSans-SemiBold.ttf";
+      $openRegualr: "../fonts/OpenSans-Regular.ttf";
+      $openExtraBold: "../fonts/OpenSans-ExtraBold.ttf";

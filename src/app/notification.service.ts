@@ -6,9 +6,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NotificationService {
-res;
-  constructor( private notification: HttpClient) {
-    this.notification.get('http://localhost:8000/orders')
-    .subscribe(res => this.res = res);
-   }
+
+  constructor(private notification: HttpClient) {}
+
+  getOrders(){
+    return this.notification.get('http://localhost:8000/orders');
+  }
+
+  getOrdersNum(id){
+    return this.notification.get('http://localhost:8000/get-orders-num/'+id);
+  }
 }

@@ -51,15 +51,11 @@ import { SettingsComponent } from './profiles/settings/settings.component';
 import { ReviewsComponent } from './profiles/reviews/reviews.component';
 import { EditProfileComponent } from './profiles/edit-profile/edit-profile.component';
 import { SideNavComponent } from './profiles/side-nav/side-nav.component';
-import { MatOptionModule} from '@angular/material';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatOptionModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
-
-import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -73,7 +69,7 @@ import { LoginComponent } from './login/login.component';
 
 
 
- 
+
     PersonalInfoComponent,
     ProfileSitterComponent,
     NotificationsComponent,
@@ -81,7 +77,7 @@ import { LoginComponent } from './login/login.component';
     ReviewsComponent,
     EditProfileComponent,
     SideNavComponent,
-    ProfileComponent,
+
   ],
   imports: [
     // BsModalService,
