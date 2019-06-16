@@ -73,6 +73,7 @@ import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchPipe } from './search.pipe';
 
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -95,7 +96,8 @@ import { SearchPipe } from './search.pipe';
     EditProfileComponent,
     SideNavComponent,
     HomeComponent,
-    SearchPipe
+    SearchPipe,
+    OrderComponent
   ],
   imports: [
     OwlModule,

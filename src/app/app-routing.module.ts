@@ -4,6 +4,7 @@ import { ClientSignupComponent } from './authentication/client-signup/client-sig
 import { LoginComponent } from './authentication/login/login.component';
 
 
+import { OrderComponent } from './order/order.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
@@ -58,6 +59,9 @@ const routes: Routes = [
   },
   {
     path: 'settings', component: SettingsComponent
+  },
+  {
+    path: 'order', component: OrderComponent
   }
 ];
 
