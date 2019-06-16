@@ -1,31 +1,37 @@
-<div id="navbar">
+<nav class="navbar navbar-expand-lg py-0">
     <div class="container">
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img class="img-fluid" src="../../../assets/img/logo.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item mx-4">
-                            <a class="nav-link" href="#">PROFILES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">ABOUT</a>
-                        </li>
-                        <li class="nav-item mx-4">
-                            <a class="nav-link" href="#">CAREERS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">SIGN IN</a>
-                        </li>
-                    </ul>
+            <div class="row align-items-baseline">
+                <div class="col-xl-2 col-md-12 col-lg-2 col-sm-12 d-flex align-items-baseline justify-content-between">
+                    <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="img-fluid" alt=""></a>
+                    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle
+                            navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-            </nav>
+                <div class="col-xl-10 col-lg-10 col-md-12 d-flex ml-auto col-sm-12">
+                    <div class="collapse navbar-collapse justify-content-center text-center mt-sm-3" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a routerLink="home" routerLinkActive="active" class="nav-link mr-3">HOME
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="profiles" routerLinkActive="active" class="nav-link mr-3">PROFILES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="about" routerLinkActive="active" class="nav-link mr-3">ABOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="careers" routerLinkActive="active" class="nav-link mr-3">CAREERS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="login" routerLinkActive="active" class="nav-link mr-3 login">SIGN IN</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</nav>

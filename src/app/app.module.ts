@@ -1,13 +1,15 @@
-import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-import { AppRoutingModule } from './app-routing.module';
+import { FooterComponent } from './shared/footer/footer.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+// Import Angular Material 
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -42,30 +44,31 @@ import {
 } from '@angular/material';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { TokenService } from './authentication/token.service';
 import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
-
+import { Ng5SliderModule } from 'ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProfileCardComponent,
     NavbarComponent,
-    HeaderComponent,
     FooterComponent,
-    LoginComponent,
     SignupComponent,
-    ClientSignupComponent
+
 
   ],
   imports: [
-    AngularFontAwesomeModule,
-    BrowserModule,
+    NgbModule,
+    Ng5SliderModule,
+    FormsModule,
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatRadioModule,
     MatDatepickerModule,
@@ -92,8 +95,6 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
@@ -106,7 +107,6 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatRadioModule,
     MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
@@ -114,10 +114,18 @@ import { SignupComponent } from './authentication/sitter-signup/sitter-signup.co
     MatSlideToggleModule,
     MatSnackBarModule,
     MatSortModule,
+    MatStepperModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    BrowserModule,
+
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [MatDatepickerModule, TokenService],
   bootstrap: [AppComponent]
