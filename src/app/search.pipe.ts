@@ -9,9 +9,9 @@ export class SearchPipe implements PipeTransform {
     if (sitter == null) {
       return profiles;
     }
-    return profiles.filter((x: any) => x['name'].toLowerCase().startsWith(sitter.toLowerCase())
+    return profiles.filter((x: any) => x['name'].toLowerCase().includes(sitter.toLowerCase())
       ||
-      x['career'].toLowerCase().startsWith(sitter.toLowerCase()));
+      x['career'].toLowerCase().includes(sitter.toLowerCase()));
   }
 
 }

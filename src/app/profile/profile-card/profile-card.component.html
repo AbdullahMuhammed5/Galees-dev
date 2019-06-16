@@ -114,7 +114,6 @@
                 <!-- Profiles Cards -->
                 <div *ngIf="!display.length" class="col-xl-9 col-md-12 col-xs-12 row no-gutters">
                     <div class="col-xl-4 col-md-6 col-xs-12" *ngFor="let profile of profiles">
-
                         <div class="card p-4">
                             <p class="price text-right m-0">$ {{profile.hourlyRate}} /hr
 
@@ -128,15 +127,13 @@
                                 </p>
                                 <p class="m-0"><i class="fas fa-map-marker-alt mr-2"></i> {{profile.age }}
                                 </p>
-<p>{{profile.experience}}</p>
+                                <p>{{profile.experience}}</p>
                                 <div><span *ngFor="let number of [1,2,3,4,5]"><i class="fas fa-star"
                                                         *ngIf="number <= profile.reviewRate"></i><i class="far fa-star"
                                                         *ngIf="number > profile.reviewRate"></i></span><a href="#" class="btn btn-primary mt-3">Show Profile</a></div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col-xl-9 col-md-12 col-xs-12 row no-gutters" *ngIf="display && display.length > 0">
                     <div class="col-xl-4 col-md-6 col-xs-12" *ngFor="let filteredItem of display">

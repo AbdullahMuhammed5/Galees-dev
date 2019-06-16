@@ -1,3 +1,5 @@
+import { AboutComponent } from './shared/about/about.component';
+import { CareersComponent } from './shared/careers/careers.component';
 import { HomeComponent } from './shared/home/home.component';
 import { AuthService } from './authentication/auth.service';
 import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
@@ -82,6 +84,8 @@ import { SearchPipe } from './search.pipe';
     FooterComponent,
     SignupComponent,
     LoginComponent,
+    CareersComponent,
+    AboutComponent,
     ClientSignupComponent,
     PersonalInfoComponent,
     ProfileSitterComponent,

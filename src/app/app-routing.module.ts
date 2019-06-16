@@ -1,3 +1,4 @@
+import { CareersComponent } from './shared/careers/careers.component';
 import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
 import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
 import { LoginComponent } from './authentication/login/login.component';
@@ -13,12 +14,20 @@ import { ReviewsComponent } from './profiles/reviews/reviews.component';
 import { SettingsComponent } from './profiles/settings/settings.component';
 import { SignupComponent } from './authentication/sitter-signup/sitter-signup.component';
 import { HomeComponent } from './shared/home/home.component';
-
-
+import { AboutComponent } from './shared/about/about.component';
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent
+  },
+  {
+    path: 'home', component: HomeComponent
+  },
+  {
+    path: 'careers', component: CareersComponent
+  },
+  {
+    path: 'about', component: AboutComponent
   },
   {
     path: 'sitter-signup', component: SignupComponent

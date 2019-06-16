@@ -12,6 +12,17 @@ export class HomeComponent implements OnInit {
   carouselOptions;
   fixedSitter;
 
+  searchActivited = false;
+
+  searchIsActive(e) {
+    console.log(e.data);
+    if (e.data === null) this.searchActivited = false;
+    else this.searchActivited = true;
+
+
+
+  }
+
   ngOnInit() {
     this.http.get('http://localhost:8000/get-profile-card').subscribe(
       // res => this.profiles = res
