@@ -1,3 +1,5 @@
+import { FooterComponent } from './shared/footer/footer.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -6,9 +8,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-
-
 
 // Import Angular Material 
 import {
@@ -50,15 +49,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Ng5SliderModule } from 'ng5-slider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 // Import OwL
-
 import { ProfileCardComponent } from './profile/profile-card/profile-card.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     NgbModule,
