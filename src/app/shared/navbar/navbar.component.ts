@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
-        if (val.url === "/" || val.url === "/home" || val.url === "/profile") {
+        if (val.url === "/" || val.url === "/home" || val.url === "/findBabySitter") {
           this.navBar = true;
           console.log(this.navBar);
         }

@@ -1,4 +1,4 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { CustomValidators } from 'ng2-validation';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';

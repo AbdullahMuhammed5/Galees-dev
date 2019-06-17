@@ -5,12 +5,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-profile-card',
-  templateUrl: './profile-card.component.html',
-  styleUrls: ['./profile-card.component.scss'],
+  selector: 'app-findBabySitter',
+  templateUrl: './findBabySitter.component.html',
+  styleUrls: ['./findBabySitter.component.scss'],
   providers: [NgbRatingConfig]
 })
-export class ProfileCardComponent implements OnInit {
+export class FindBabySitterComponent implements OnInit {
 
   constructor(private http: HttpClient, private config: NgbRatingConfig) {
     this.config.max = 5;

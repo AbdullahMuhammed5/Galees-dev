@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { MatStepper } from '@angular/material';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-sitter-signup',
   templateUrl: './sitter-signup.component.html',
   styleUrls: ['./sitter-signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SitterSignupComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService) { }

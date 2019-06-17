@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AuthService } from '../auth.service';
-import { TokenService } from '../token.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { TokenService } from 'src/app/shared/services/token.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [TokenService, AuthService]
 })
 export class LoginComponent implements OnInit {
   login: FormGroup;
@@ -32,6 +33,6 @@ export class LoginComponent implements OnInit {
       (res) => this.handleResponse(res),
       (error) => this.errorMessage = error.error.error
     )
-    // console.log(form.value);
+    console.log(form.value);
   }
 }
