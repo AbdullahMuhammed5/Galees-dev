@@ -13,10 +13,14 @@ export class UsersService {
   getUser(email) {
     this.user.get('http://localhost:8000/current-user/' + email).
       subscribe(res => {
-        this.currentUser = res
+        this.currentUser = res;
+        console.log(this.currentUser);
+
         this.id = this.currentUser.id
-        // console.log(this.id)
       });
+  }
+  getCurrentUser() {
+    return this.currentUser;
   }
 
   getID() {

@@ -33,9 +33,12 @@ export class LoginComponent implements OnInit {
   }
   currentUser;
   loginData(form) {
-    this.user.getUser(form.controls.email)
-    this.currentUser = this.user.currentUser
-    console.log(this.currentUser);
+    this.user.getUser(form.controls.email.value)
+    setTimeout(() => {
+      this.currentUser = this.user.getCurrentUser;
+      console.log(this.currentUser)
+    }, 2000);
+
 
     this.authService.signInUser(form.value).subscribe(
       (res) => {
