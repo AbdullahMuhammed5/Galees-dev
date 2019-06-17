@@ -9,6 +9,31 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+
+
+
+
+  loggedIn;
+  isAuthinticated() {
+    this.loggedIn = localStorage.getItem("login");
+    console.log(this.loggedIn)
+    const promise = new Promise<string>(
+      (resolve, reject) => {
+        resolve(this.loggedIn)
+      }
+    )
+    return promise;
+  }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('login'));
+    return user !== null;
+  }
+
+
+
+
+
   signUpUser(user) {
     return this.http.post('http://localhost:8000/api/auth/register', user)
   }

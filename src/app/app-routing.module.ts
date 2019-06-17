@@ -8,6 +8,7 @@ import { CareersComponent } from './career/careers/careers.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
 import { FindBabySitterComponent } from './profile/findBabySitter/findBabySitter.component';
+import { SingedUserGuard } from './shared/services/singed-user.guard';
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
   //   path: 'careers', component: CareersComponent
   // },
   {
-    path: 'about', component: AboutComponent
+    path: 'about', component: AboutComponent, canActivate: [SingedUserGuard],
   },
   {
     path: 'login', component: LoginComponent

@@ -163,7 +163,7 @@ import { FindBabySitterComponent } from './profile/findBabySitter/findBabySitter
     NgbDropdownModule,
     MatCheckboxModule
   ],
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
