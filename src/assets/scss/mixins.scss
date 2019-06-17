@@ -139,7 +139,7 @@
 %line {
   content: "";
   display: block;
-  width: 6%;
+  width: 9%;
   background-color: $secondary-color;
   height: 0.3rem;
   margin: 0 auto;
@@ -149,6 +149,8 @@
 
 %primary-btn {
   // @include btn;
+  border: none;
+  
   background: $primary-color;
   color: $white;
 }

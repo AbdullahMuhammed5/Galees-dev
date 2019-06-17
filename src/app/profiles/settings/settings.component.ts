@@ -42,17 +42,17 @@ export class SettingsComponent implements OnInit {
 
     // updatedPassword.email  = this.userService.currentUser.email;
 
-    this.Http.put('backend url', updatePassword).subscribe(res => {
-      if (res.status == 200) {
-        Swal.fire({
-          position: 'center',
-          type: 'success',
-          title: 'Your password has been changed successfully',
-          showConfirmButton: false,
-          timer: 1500
-        });
-      }
-    });
+  //   this.Http.put('backend url', updatePassword).subscribe(res => {
+  //     if (res.status == 200) {
+  //       Swal.fire({
+  //         position: 'center',
+  //         type: 'success',
+  //         title: 'Your password has been changed successfully',
+  //         showConfirmButton: false,
+  //         timer: 1500
+  //       });
+  //     }
+  //   });
 
   }
 
@@ -70,40 +70,43 @@ export class SettingsComponent implements OnInit {
     //   showConfirmButton: false,
     //   timer: 1500
     // });
-    this.Http.put('backendUrl', emailForm).subscribe(
-      res => 
-      if ( res.status == 400) {
-      Swal.fire({
-      position: 'center',
-      type: 'success',
-      title: 'Your email has been changed successfully',
-      showConfirmButton: false,
-      timer: 1500
-    });
-      }
-    );
+    // this.Http.put('backendUrl', emailForm).subscribe(
+    //   res => 
+    //   if ( res.status == 400) {
+    //   Swal.fire({
+    //   position: 'center',
+    //   type: 'success',
+    //   title: 'Your email has been changed successfully',
+    //   showConfirmButton: false,
+    //   timer: 1500
+    // });
+    //   }
+    // );
   }
 
 
   /* -------------------------- Delete Alert --------------------------*/
   deleteAccount(e) {
     e.preventDefault();
-    Swal.fire({
-      title: 'Are you sure you want to delete your account ?',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#591AB4',
-      cancelButtonColor: '#ECECEC',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Deleted !',
-          'Your Account has been deleted.',
-          'success'
-        );
-      }
-    });
+
+    // this.Http.delete('backendURL', this.userService.currentUser.id);
+
+    // Swal.fire({
+    //   title: 'Are you sure you want to delete your account ?',
+    //   type: 'warning',
+    //   showCancelButton: true,
+    //   confirmButtonColor: '#591AB4',
+    //   cancelButtonColor: '#ECECEC',
+    //   confirmButtonText: 'Yes, delete it!'
+    // }).then((result) => {
+    //   if (result.value) {
+    //     Swal.fire(
+    //       'Deleted !',
+    //       'Your Account has been deleted.',
+    //       'success'
+    //     );
+    //   }
+    // });
 
   }
 }

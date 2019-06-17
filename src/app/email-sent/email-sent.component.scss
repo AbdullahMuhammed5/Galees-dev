@@ -1,0 +1,16 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.email-send{
+    @extend %sectionPadding;
+    .sectionHeader{
+        @include sectionHeader($primary-color);
+    }
+    p{
+        padding-bottom: 1.5rem;
+        color: $dark-grey;
+    }
+    span{
+        color: red;
+    }
+}

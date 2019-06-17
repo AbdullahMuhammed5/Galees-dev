@@ -8,7 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { OwlModule } from 'ngx-owl-carousel';
 
+
 import {
+ 
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -64,6 +66,14 @@ import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+// import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormModalComponent } from './form-modal/form-modal.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PasswordSubmitComponent } from './password-submit/password-submit.component';
+import { EmailSentComponent } from './email-sent/email-sent.component';
+// import {MatFormFieldModule} from '@angular/material/form-field';
 // import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 // import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -91,6 +101,12 @@ import { LoginComponent } from './login/login.component';
     SideNavComponent,
     ProfileComponent,
     LoginComponent,
+    ProfileDetailsComponent,
+    FormModalComponent,
+    ResetPasswordComponent,
+    PasswordSubmitComponent,
+    EmailSentComponent,
+    // NgbActiveModal
   ],
   imports: [
     // BsModalService,
@@ -124,7 +140,10 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     NgbModule,
     NgbPopoverModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    // NgbActiveModal,
+    MDBBootstrapModule,
+    // MatFormFieldModule
   ],
   exports: [
 
@@ -161,9 +180,13 @@ import { LoginComponent } from './login/login.component';
     MatToolbarModule,
     MatTooltipModule,
     NgbDropdownModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    // NgbActiveModal,
   ],
   providers: [MatDatepickerModule],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    FormModalComponent
+  ]
 })
 export class AppModule { }
