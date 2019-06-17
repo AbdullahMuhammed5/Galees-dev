@@ -52,6 +52,14 @@ body {
 }
 
 
+// Table Col Header 
+
+.mat-header-cell {
+    color: $primary-color;
+    @include typoStyle($openSemiBold,1rem,900)
+}
+
+
 /*  -------------- Check BOx --------------------- */
 
 .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element,

@@ -43,32 +43,33 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminComponent } from './admin/admin.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { ProfileSitterComponent } from './profiles/profile-sitter/profile-sitter.component';
-import { PersonalInfoComponent } from './profiles/personal-info/personal-info.component';
-import { PersonalSkillsComponent } from './profiles/personal-skills/personal-skills.component';
-import { EditProfileComponent } from './profiles/edit-profile/edit-profile.component';
-import { NotificationsComponent } from './profiles/notifications/notifications.component';
-import { ReviewsComponent } from './profiles/reviews/reviews.component';
-import { SettingsComponent } from './profiles/settings/settings.component';
-import { SideNavComponent } from './profiles/side-nav/side-nav.component';
 import { ChartsModule, WavesModule } from 'angular-bootstrap-md'
 import { MatTableModule } from '@angular/material/table';
+
+import { CustomersComponent } from './AdminDashboard/cutomers/customers.component';
+import { OrderAdminComponent } from './AdminDashboard/orderAdmin/orderAdmin.component';
+import { ReviewsAdminComponent } from './AdminDashboard/reviewsAdmin/reviewsAdmin.component';
+import { SideNavAdminComponent } from './AdminDashboard/side-navAdmin/side-navAdmin.component';
+import { DocumentationComponent } from './AdminDashboard/documentation/documentation.component';
+import { DatabaseComponent } from './AdminDashboard/database/database.component';
+import { DashboardComponent } from './AdminDashboard/dashboard/dashboard.component';
+import { LandingAdminComponent } from './AdminDashboard/landingAdmin/landingAdmin.component';
+import { SitterComponent } from './AdminDashboard/sitters/sitter.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
+    SitterComponent,
+    CustomersComponent,
+    OrderAdminComponent,
+    ReviewsAdminComponent,
+    SideNavAdminComponent,
+    DocumentationComponent,
     DashboardComponent,
-    ProfileSitterComponent,
-    PersonalInfoComponent,
-    PersonalSkillsComponent,
-    EditProfileComponent,
-    NotificationsComponent,
-    ReviewsComponent,
-    SideNavComponent,
-    SettingsComponent
+    DatabaseComponent,
+    LandingAdminComponent
   ],
   imports: [
     MatTableModule,
