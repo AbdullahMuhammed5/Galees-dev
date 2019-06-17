@@ -1,0 +1,54 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+.details {
+    .image--cover {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid $white;
+        object-fit: cover;
+        object-position: center right;
+    }
+    .card {
+        border: none;
+        border-radius: 20px;
+        padding: 2.5rem 2.5rem;
+        @include box-shadow (0, 0, 10px, 0, rgba(221, 223, 226, 0.16));
+        img {
+            margin-left: 1rem;
+        }
+        button {
+            @include box-shadow (0, 3px, 6px, 0, rgba(0, 0, 0, 0.16));
+            @extend %primary-btn;
+        }
+    }
+    .reviews {
+        .row.align-items-center {
+            @extend %line;
+            i {
+                color: rgb(255, 251, 6);
+            }
+        }
+    }
+    .col-md-4 {
+        .card-title {
+            @extend %line;
+        }
+    }
+}
+
+.nanny {
+    .card-title {
+        color: $primary-color;
+    }
+    i {
+        color: rgb(255, 251, 6);
+    }
+}
+
+.nanny,
+.Bio,
+.speciality,
+.reviews {
+    margin-bottom: 2.5rem;
+}
