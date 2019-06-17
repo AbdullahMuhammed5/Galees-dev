@@ -1,3 +1,5 @@
+import { ContactUsComponent } from './shared/contact-us/contact-us.component';
+import { TermsComponent } from './shared/terms/terms.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -24,9 +26,12 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'careers', component: CareersComponent
-  // },
+  {
+    path: 'terms', component: TermsComponent
+  },
+  {
+    path: 'contact-us', component: ContactUsComponent
+  },
   {
     path: 'about', component: AboutComponent, canActivate: [SingedUserGuard],
   },

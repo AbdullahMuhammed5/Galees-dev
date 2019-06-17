@@ -8,11 +8,6 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-
-
-
-
-
   loggedIn;
   isAuthinticated() {
     this.loggedIn = localStorage.getItem("login");
@@ -24,11 +19,14 @@ export class AuthService {
     )
     return promise;
   }
-
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('login'));
     return user !== null;
   }
+
+getCurrentClient(obj) {
+
+}
 
 
 

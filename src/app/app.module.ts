@@ -68,6 +68,8 @@ import { HomeComponent } from './shared/home/home.component';
 import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { FindBabySitterComponent } from './profile/findBabySitter/findBabySitter.component';
+import { TermsComponent } from './shared/terms/terms.component';
+import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import { FindBabySitterComponent } from './profile/findBabySitter/findBabySitter
     ClientSignupComponent,
     OrderComponent,
     SearchPipe,
+    TermsComponent,
+    ContactUsComponent,
   ],
   imports: [
     CareerRoutingModule,
