@@ -1,3 +1,4 @@
+import { UsersService } from 'src/app/shared/services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder,
     private authService: AuthService,
     private Token: TokenService,
-    private route: Router) { }
+    private route: Router,
+    private user: UsersService) { }
 
   ngOnInit() {
     this.login = this._formBuilder.group({
@@ -29,14 +31,17 @@ export class LoginComponent implements OnInit {
   handleResponse(data) {
     this.Token.handle(data.access_token)
   }
-
+  currentUser;
   loginData(form) {
+    this.user.getUser(form.controls.email)
+    this.currentUser = this.user.currentUser
+    console.log(this.currentUser);
+
     this.authService.signInUser(form.value).subscribe(
       (res) => {
         this.handleResponse(res);
         if (res) {
           localStorage.setItem('login', 'true');
-          this.authService.islogin = true;
           this.route.navigateByUrl('/home');
         }
         else {
