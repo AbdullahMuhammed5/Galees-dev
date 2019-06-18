@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { GetSitterDetailsService } from 'src/app/shared/services/get-sitter-details.service';
 
 @Component({
   selector: 'app-findBabySitter',
@@ -12,9 +14,13 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FindBabySitterComponent implements OnInit {
 
-  constructor(private http: HttpClient, private config: NgbRatingConfig) {
+  constructor(private http: HttpClient, private config: NgbRatingConfig, private route: Router, private getDetails: GetSitterDetailsService) {
     this.config.max = 5;
   }
+
+
+
+
 
   minAge = 22;
   maxAge = 45;
@@ -175,6 +181,12 @@ export class FindBabySitterComponent implements OnInit {
 
   }
 
+  getDetail(profile, id) {
+    console.log(profile);
+    console.log(id);
+
+    this.getDetails.getDetails(profile, id);
+  }
 
   ngOnInit() {
     this.spec = new FormGroup({

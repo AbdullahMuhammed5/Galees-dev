@@ -20,11 +20,10 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'findBabySitter', component: FindBabySitterComponent, children: [
-      {
-        path: 'profile-details', component: ProfileDetailsComponent
-      }
-    ]
+    path: 'findBabySitter', component: FindBabySitterComponent
+  },
+  {
+    path: 'findBabySitter/:id', component: ProfileDetailsComponent
   },
   {
     path: 'terms', component: TermsComponent

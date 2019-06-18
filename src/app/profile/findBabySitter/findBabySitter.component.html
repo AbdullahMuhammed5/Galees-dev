@@ -130,7 +130,9 @@
                                 <p>{{profile.experience}}</p>
                                 <div><span *ngFor="let number of [1,2,3,4,5]"><i class="fas fa-star"
                                                         *ngIf="number <= profile.reviewRate"></i><i class="far fa-star"
-                                                        *ngIf="number > profile.reviewRate"></i></span><a href="#" class="btn btn-primary mt-3">Show Profile</a></div>
+                                                        *ngIf="number > profile.reviewRate"></i></span>
+                                </div>
+                                <a (click)="getDetail(profile,profile.id)" [routerLink]="['/findBabySitter', profile.id]" class="btn btn-primary mt-3">Show Profile</a>
                             </div>
                         </div>
                     </div>
@@ -154,7 +156,7 @@
                                 </p>
                                 <div><span *ngFor="let number of [1,2,3,4,5]"><i class="fas fa-star"
                                                                     *ngIf="number <= filteredItem.reviewRate"></i><i class="far fa-star"
-                                                                    *ngIf="number > filteredItem.reviewRate"></i></span><a href="#" class="btn btn-primary mt-3">Show Profile</a></div>
+                                                                    *ngIf="number > filteredItem.reviewRate"></i></span><button class="btn btn-primary mt-3">Show Profile</button></div>
                             </div>
                         </div>
 
