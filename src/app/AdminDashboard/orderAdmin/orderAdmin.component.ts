@@ -10,7 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrderAdminComponent implements OnInit {
   profiles;
-  displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['select', 'position', 'name', 'hours', 'weight', 'symbol'];
+  // displayedColumns: string[] = ['select', 'Customer', 'Sitter', 'StartDate', 'EndDate'];
   dataSource;
   selection = new SelectionModel(true, []);
 
@@ -50,16 +51,13 @@ export class OrderAdminComponent implements OnInit {
   //   this.selection = new SelectionModel;
   // }
   constructor(private http: HttpClient) { }
-
   pro;
-
   ngOnInit() {
     this.http.get('http://localhost:8000/orders').subscribe(
       res => {
         console.log(res);
         this.profiles = res;
         this.dataSource = new MatTableDataSource(this.profiles)
-
       }
     );
   }
