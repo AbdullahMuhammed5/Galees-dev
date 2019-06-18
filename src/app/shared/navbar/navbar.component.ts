@@ -1,5 +1,7 @@
+import { UsersService } from './../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,21 +10,26 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   navBar = false;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService, private user: UsersService) { }
+  Currentuser;
+
+
 
   ngOnInit() {
+
+    this.auth.isLoggedIn;
+    console.log(this.auth.loggedIn);
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
-        if (val.url === "/" || val.url === "/home" || val.url === "/profile") {
+        if (val.url === "/" || val.url === "/home" || val.url === "/findBabySitter") {
           this.navBar = true;
-          console.log(this.navBar);
         }
         else {
           this.navBar = false;
-          console.log(this.navBar);
-
         }
-        console.log(val);
+        this.Currentuser = this.user.currentUser;
+        console.log(this.Currentuser);
+
       }
     })
   }

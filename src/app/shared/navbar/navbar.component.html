@@ -17,21 +17,26 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a routerLink="profile" routerLinkActive="active" class="nav-link mr-3">PROFILES</a>
+                                <a routerLink="findBabySitter" routerLinkActive="active" class="nav-link mr-3">FIND A SITTER</a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="about" routerLinkActive="active" class="nav-link mr-3">ABOUT</a>
                             </li>
                             <li class="nav-item">
-                                <a routerLink="careers" routerLinkActive="active" class="nav-link mr-3">CAREERS</a>
+                                <a routerLink="career" routerLinkActive="active" class="nav-link mr-3">CAREERS</a>
                             </li>
-                            <li class="nav-item">
-                                <a routerLink="login" class="nav-link mr-3 login">SIGN IN</a>
-                            </li>
+                            <div *ngIf="!this.auth.isLoggedIn">
+                                <li class="nav-item">
+                                    <a routerLink="login" class="nav-link mr-3 login">SIGN IN</a>
+                                </li>
+                            </div>
+                            <div *ngIf="this.auth.isLoggedIn">
+                                <li>
+                                    <a href="">uiyiouyoiu</a>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>

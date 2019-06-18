@@ -8,14 +8,19 @@
                             <div class="card mb-3">
                                 <div class="row no-gutters">
                                     <div class="col-md-4 text-center">
-                                        <img src="assets/images/details/girl2.jpg" class="card-img image--cover" alt="...">
+                                        <img [attr.src]="'http://localhost:8000/get-img/'+sitter?.personalPic"  class="card-img image--cover" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h3 class="card-title">AMANY ALI</h3>
-                                            <p class="card-text"><strong>AGE: </strong> 20 years</p>
-                                            <p class="card-text"><strong>Years of experience:</strong> 2 years</p>
-                                            <p class="card-text"><strong>Reviews: </strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                                            <h3 class="card-title">{{sitter?.name}}</h3>
+                                            <p class="card-text"><strong>Age: </strong> {{sitter?.age}} years</p>
+                                            <p class="card-text"><strong>Years of experience:</strong> {{sitter?.experience}} years</p>
+                                            <p class="card-text"><strong>Reviews: </strong>
+                                                <span *ngFor="let number of [1,2,3,4,5]">
+                                                    <i class="fas fa-star" *ngIf="number <= profile?.reviewRate"></i>
+                                                    <i class="far fa-star" *ngIf="number > profile?.reviewRate"></i>
+                                                </span>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -27,7 +32,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <h5>Gender:</h5>
-                                            <p>Female</p>
+                                            <p>{{sitter?.gender}}</p>
                                             <h5>Education:</h5>
                                             <p>High School Degree</p>
                                             <h5>Languages: </h5>
@@ -52,7 +57,8 @@
                                                     <h5>Bio:</h5>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    My Name is Amany Ali and I love kids, I'm first Aid certified. I also have made my own transportation that can fit up to 4 kids Safely and Clean driving record. I can do pickups and dropoffs. Feel free to order me.
+                                                    <!-- My Name is Amany Ali and I love kids, I'm first Aid certified. I also have made my own transportation that can fit up to 4 kids Safely and Clean driving record. I can do pickups and dropoffs. Feel free to order me. -->
+                                                    {{sitter?.bio}}
                                                 </div>
                                             </div>
                                         </div>
