@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dialog-form',
@@ -8,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DialogFormComponent implements OnInit {
 myForm: FormGroup;
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder, private dialogRef: MatDialog, Http: HttpClient) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -16,12 +18,16 @@ myForm: FormGroup;
       to: ['', [Validators.required]],
       hours: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      postalcode: ['', [Validators.required]],
+      address: ['', [Validators.required]],
       info: ['', [Validators.required]]
     });
     }
+    onSubmit(myForm) {
+      console.log(myForm.value);
+      // this.http.post("backendURL", myForm.value);
+      this.dialogRef.closeAll();
+    }
   }
+
 
 

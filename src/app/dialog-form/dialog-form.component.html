@@ -22,23 +22,26 @@
       </mat-form-field>
     
       <mat-form-field>
-        <input matInput placeholder="CITY" formControlName = "city">
+        <input matInput placeholder="ADDRESS" formControlName = "address">
       </mat-form-field>
     
-      <mat-form-field>
+      <!-- <mat-form-field>
         <input matInput placeholder="STATE" formControlName = "state">
       </mat-form-field>
 
       <mat-form-field>
         <input matInput placeholder="POSTAL-CODE" formControlName = "postalcode">
-      </mat-form-field>
+      </mat-form-field> -->
 
       <mat-form-field>
         <input matInput placeholder="INFO" formControlName = "info">
       </mat-form-field>
-</form>
-    </mat-dialog-content>
+    
+    
     <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Cancel</button>
-      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>SEND</button>
+      <button mat-button  type = "submit">make a request</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
     </mat-dialog-actions>
+<!-- <button type = "submit">request</button> -->
+  </form>
+</mat-dialog-content>
