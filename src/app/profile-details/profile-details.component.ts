@@ -18,12 +18,6 @@ export class ProfileDetailsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
-    // const dialogRef = this.dialog.open(DialogFormComponent, {
-    //   width: '650px',
-    // });
-
     openDialog() {
       const dialogRef = this.dialog.open(DialogFormComponent, {
         width: '650px',
