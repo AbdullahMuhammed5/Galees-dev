@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogFormComponent } from '../dialog-form/dialog-form.component';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 // import { FormModalComponent } from '../form-modal/form-modal.component';
@@ -12,19 +14,30 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProfileDetailsComponent implements OnInit {
 // myForm: FormGroup;
-  constructor( ) { }
+  constructor( public dialog: MatDialog ) { }
 
   ngOnInit() {
   }
-  async proposal() {
-  const {value: email} = await Swal.fire({
-    title: 'Input email address',
-    inputPlaceholder: 'Enter your email address'
-  });
-  if (email) {
-    Swal.fire('Entered email: ' + email);
-  }
 
-}
+
+    // const dialogRef = this.dialog.open(DialogFormComponent, {
+    //   width: '650px',
+    // });
+
+    openDialog() {
+      const dialogRef = this.dialog.open(DialogFormComponent, {
+        width: '650px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+    // const dialogConfig = new MatDialogConfig();
+    // this.dialog.open(DialogFormComponent, dialogConfig);
+    // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
 
 }

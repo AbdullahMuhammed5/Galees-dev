@@ -73,6 +73,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { PasswordSubmitComponent } from './password-submit/password-submit.component';
 import { EmailSentComponent } from './email-sent/email-sent.component';
+import { DialogFormComponent } from './dialog-form/dialog-form.component';
+// import {MatDialogModule} from '@angular/material/dialog';
 // import {MatFormFieldModule} from '@angular/material/form-field';
 // import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 // import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -106,6 +108,7 @@ import { EmailSentComponent } from './email-sent/email-sent.component';
     ResetPasswordComponent,
     PasswordSubmitComponent,
     EmailSentComponent,
+    DialogFormComponent,
     // NgbActiveModal
   ],
   imports: [
@@ -143,6 +146,7 @@ import { EmailSentComponent } from './email-sent/email-sent.component';
     NgbDropdownModule,
     // NgbActiveModal,
     MDBBootstrapModule,
+    MatDialogModule
     // MatFormFieldModule
   ],
   exports: [
@@ -186,7 +190,7 @@ import { EmailSentComponent } from './email-sent/email-sent.component';
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
   entryComponents: [
-    FormModalComponent
+    DialogFormComponent
   ]
 })
 export class AppModule { }
