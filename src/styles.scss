@@ -52,6 +52,36 @@ body {
 }
 
 
+/* Range */
+
+.ng5-slider .ng5-slider-pointer {
+    background: $primary-color !important;
+    outline: 0 !important;
+}
+
+.ng5-slider .ng5-slider-selection {
+    background: $primary-color !important;
+}
+
+
+/* Pagination */
+
+.ngx-pagination .current {
+    background: $primary-color !important;
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -ms-border-radius: 50% !important;
+    -o-border-radius: 50% !important;
+}
+
+.ngx-pagination a:hover,
+.ngx-pagination button:hover {
+    background: $icon-color !important;
+    color: $white !important;
+}
+
+
 /*  -------------- Check BOx --------------------- */
 
 .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element,
@@ -64,11 +94,6 @@ body {
 .mat-step-header.cdk-program-focused,
 .mat-step-header:hover {
     background: none;
-}
-
-// Circle text 
-.ng-star-inserted {
-    // @include typoStyle($openExtraBold, 1rem, 900);
 }
 
 //Button 

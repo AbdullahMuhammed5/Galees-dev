@@ -9,18 +9,18 @@
         border: 0;
         h3 {
             color: $primary-color;
-            // @include typoStyle($openSemiBold, 1.4rem, 900);
+            @include typoStyle($openSemiBold, 1.4rem, 900);
         }
         p {
             color: $grey;
-            // @include typoStyle($openSemiBold, 1.4rem, 900);
+            @include typoStyle($openSemiBold, 1.4rem, 900);
         }
         label {
             color: $black;
-            // @include typoStyle($openSemiBold, 1rem, 900);
+            @include typoStyle($openSemiBold, 1rem, 900);
         }
         button {
-            // @extend %primary-btn;
+            @extend %primary-btn;
             border: 0;
         }
         button:disabled {
@@ -39,7 +39,7 @@
             border-radius: 12px;
             border: 1px solid #707070;
             color: #707070;
-            // @include typoStyle($openRegualr, 1rem, 500);
+            @include typoStyle($openRegualr, 1rem, 500);
         }
     }
 }

@@ -40,6 +40,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  MatDialog,
 } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,13 +53,10 @@ import { MatOptionModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
-
-
 import { OrderComponent } from './order/order.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
-
 // import { CareersComponent } from './career/careers/careers.component';
 import { SearchPipe } from './shared/services/search.pipe';
 import { CareerRoutingModule } from './career-routing.module';
@@ -71,6 +69,9 @@ import { LoginComponent } from './authentication/login/login.component';
 import { FindBabySitterComponent } from './profile/findBabySitter/findBabySitter.component';
 import { TermsComponent } from './shared/terms/terms.component';
 import { ContactUsComponent } from './shared/contact-us/contact-us.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SubscribeComponent } from './shared/subscribe/subscribe.component';
+import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
 
 
 @NgModule({
@@ -83,16 +84,19 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    // CareersComponent,
+    SubscribeComponent,
     AboutComponent,
     ClientSignupComponent,
     OrderComponent,
     SearchPipe,
     TermsComponent,
     ContactUsComponent,
+    UserProfileComponent,
+    UserSettingsComponent,
   ],
   imports: [
     CareerRoutingModule,
+    MatDialogModule,
     CareerModule,
     NgxPaginationModule,
     OwlModule,
@@ -167,6 +171,7 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
     MatCheckboxModule
   ],
   providers: [MatDatepickerModule, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [OrderComponent]
 })
 export class AppModule { }

@@ -29,9 +29,6 @@ getCurrentClient(obj) {
 }
 
 
-
-
-
   signUpUser(user) {
     return this.http.post('http://localhost:8000/api/auth/register', user)
   }

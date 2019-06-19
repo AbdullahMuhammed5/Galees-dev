@@ -33,19 +33,33 @@ export class LoginComponent implements OnInit {
   }
   currentUser;
   loginData(form) {
+    console.log('shaimaaaaaaaa')
+    console.log(form.controls.email.value)
     this.user.getUser(form.controls.email.value)
     setTimeout(() => {
-      this.currentUser = this.user.getCurrentUser;
-      console.log(this.currentUser)
+      this.currentUser = this.user.getCurrentUser();
+      console.log(this.currentUser);
+      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     }, 2000);
 
 
     this.authService.signInUser(form.value).subscribe(
       (res) => {
         this.handleResponse(res);
+        console.log(res);
         if (res) {
           localStorage.setItem('login', 'true');
-          this.route.navigateByUrl('/home');
+          console.log(JSON.parse(localStorage.getItem('currentUser')).role);
+
+          if (JSON.parse(localStorage.getItem('currentUser')).role === 1) {
+            this.route.navigateByUrl('/home');
+            console.log('To Home');
+          }
+          else {
+            this.route.navigateByUrl('/sitter/personal-info');
+            console.log('To Sitter');
+
+          }
         }
         else {
           localStorage.setItem('login', 'false')

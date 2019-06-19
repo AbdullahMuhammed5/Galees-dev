@@ -1,8 +1,12 @@
 @import '../../../assets/scss/variables.scss';
 @import '../../../assets/scss/mixins';
+.page {
+    margin: 20px auto 5px auto;
+}
+
 header {
     @include background-img('../../../assets/img/profilesheader.png', cover, center, no-repeat);
-    margin-top: -4.5rem;
+    margin-top: -5.1rem;
     main {
         padding: 13.43rem 0 17rem 0;
         h1 {
@@ -31,6 +35,15 @@ header {
     }
 }
 
+.up {
+    position: relative;
+    bottom: 9rem;
+}
+
+.apply {
+    @extend %primary-btn;
+}
+
 .card {
     margin-top: .5rem;
     h3 {
@@ -49,7 +62,6 @@ header {
     position: relative;
     border-radius: 20px;
     box-shadow: 0px 0px 20px rgba(221, 223, 226, 0.3);
-    bottom: 9rem;
     img {
         margin: $auto-margin;
         filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));

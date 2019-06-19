@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="container-fluid py-5">
+        <section class="details">
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card mb-3 p-4">
+                            <div class="row no-gutters">
+                                <div class="col-md-4 text-center">
+                                    <img [attr.src]="'http://localhost:8000/get-img/'+this.user?.personalPic" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{this.user?.name}}</h3>
+                                        <p class="address"><i class="fas fa-map-marker-alt mr-2"></i> {{this.user?.address}}</p>
+                                        <p class="card-text"><strong>Age: </strong> {{this.user?.age}} years</p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Bio">
+                            <div class="card mb-3">
+                                <div class="row no-gutters">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <h5>Bio:</h5>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    {{this.user?.bio}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speciality">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-4">
+                                                <h5>Gender:</h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>{{this.user?.gender}}</p>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <h5>Education:</h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>High School Degree</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h5>Languages: </h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>Arabic, English</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 row">
+                                            <div class="col-12">
+                                                <h5>Specialities</h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Pet lover</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Arts and crafts</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Reading</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Sports</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">music</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+</div>

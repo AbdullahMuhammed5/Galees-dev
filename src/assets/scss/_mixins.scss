@@ -127,6 +127,7 @@
 @mixin btn {
     border-radius: 50px;
     padding: .3rem 1rem;
+    outline: 0;
     @include typoStyle($openSemiBold, 1rem, 800);
     margin: $auto-margin;
     &:hover {

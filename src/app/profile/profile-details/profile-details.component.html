@@ -1,48 +1,26 @@
 <div class="container">
-    <div class="container-fluid">
+    <div class="container-fluid py-5">
         <section class="details">
             <div class="container">
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-8">
-                        <div class="nanny">
-                            <div class="card mb-3">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4 text-center">
-                                        <img [attr.src]="'http://localhost:8000/get-img/'+sitter?.personalPic"  class="card-img image--cover" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h3 class="card-title">{{sitter?.name}}</h3>
-                                            <p class="card-text"><strong>Age: </strong> {{sitter?.age}} years</p>
-                                            <p class="card-text"><strong>Years of experience:</strong> {{sitter?.experience}} years</p>
-                                            <p class="card-text"><strong>Reviews: </strong>
-                                                <span *ngFor="let number of [1,2,3,4,5]">
-                                                    <i class="fas fa-star" *ngIf="number <= profile?.reviewRate"></i>
-                                                    <i class="far fa-star" *ngIf="number > profile?.reviewRate"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
+                        <div class="card mb-3 p-4">
+                            <div class="row no-gutters">
+                                <div class="col-md-4 text-center">
+                                    <img [attr.src]="'http://localhost:8000/get-img/'+sitter?.personalPic" class="card-img" alt="...">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="speciality">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h5>Gender:</h5>
-                                            <p>{{sitter?.gender}}</p>
-                                            <h5>Education:</h5>
-                                            <p>High School Degree</p>
-                                            <h5>Languages: </h5>
-                                            <p>English</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h5>Specialities</h5>
-                                            <p>Pet Lover</p>
-                                            <p>Arts and Crafts</p>
-                                        </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{sitter?.name}}</h3>
+                                        <p class="address"><i class="fas fa-map-marker-alt mr-2"></i> {{sitter?.address}}</p>
+                                        <p class="card-text"><strong>Age: </strong> {{sitter?.age}} years</p>
+                                        <p class="card-text"><strong>Years of experience:</strong> {{sitter?.experience}} years</p>
+                                        <p class="card-text"><strong>Reviews: </strong>
+                                            <span *ngFor="let number of [1,2,3,4,5]">
+                                                    <i class="fas fa-star" *ngIf="number <= sitter?.reviewRate"></i>
+                                                    <i class="far fa-star" *ngIf="number > sitter?.reviewRate"></i>
+                                                </span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +35,6 @@
                                                     <h5>Bio:</h5>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <!-- My Name is Amany Ali and I love kids, I'm first Aid certified. I also have made my own transportation that can fit up to 4 kids Safely and Clean driving record. I can do pickups and dropoffs. Feel free to order me. -->
                                                     {{sitter?.bio}}
                                                 </div>
                                             </div>
@@ -66,38 +43,118 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="reviews">
+                        <div class="speciality">
                             <div class="card">
-                                <div class="card-title">
-                                    <h5>Reviews</h5>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-md-3"><img src="assets/images/details/girl2.jpg" class="card-img image--cover img-fluid" alt="..."></div>
-                                    <div class="col-md-9">
-                                        <h5>Alaa Dawabah</h5>
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                        <p> My Name is Amany Ali and I love kids, I'm first Aid certified. I also have made my own transportation
-                                        </p>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-4">
+                                                <h5>Gender:</h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>{{sitter?.gender}}</p>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <h5>Education:</h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>High School Degree</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h5>Languages: </h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>Arabic, English</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 row">
+                                            <div class="col-12">
+                                                <h5>Specialities</h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Pet lover</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Arts and crafts</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Reading</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">Sports</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="spec">music</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row align-items-center">
-                                    <div class="col-md-3"><img src="assets/images/details/girl2.jpg" class="card-img image--cover img-fluid" alt="..."></div>
-                                    <div class="col-md-9">
-                                        <h5>Mariam Haris</h5>
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                        <p> My Name is Amany Ali and I love kids, I'm first Aid certified. I also have made my own transportation
-                                        </p>
+                            </div>
+                        </div>
+
+                        <div class="reviews">
+                            <div class="cardRev">
+
+                                <section id="reviews" class="mt-3">
+                                    <div class="card p-4">
+                                        <div class="card-title">
+                                            <h5>Reviews</h5>
+                                        </div>
+                                        <div class="media my-3">
+                                            <img src="../../../../assets/img/kamel.jpg" class="align-self-center mr-3 img-fluid" alt="...">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">Sofia Adham</h5>
+                                                <p><i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i></p>
+                                                <p class="mb-0">My name is Amany Ali and I love kids, I'm First Aid certified. I also have my own transportation </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="media my-3">
+                                            <img src="../../../../assets/img/kamel.jpg" class="align-self-center mr-3 img-fluid" alt="...">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">Sofia Adham</h5>
+                                                <p><i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i></p>
+                                                <p class="mb-0">My name is Amany Ali and I love kids, I'm First Aid certified. I also have my own transportation </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="media my-3">
+                                            <img src="../../../../assets/img/kamel.jpg" class="align-self-center mr-3 img-fluid" alt="...">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">Sofia Adham</h5>
+                                                <p><i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i></p>
+                                                <p class="mb-0">My name is Amany Ali and I love kids, I'm First Aid certified. I also have my own transportation </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="media my-3">
+                                            <img src="../../../../assets/img/kamel.jpg" class="align-self-center mr-3 img-fluid" alt="...">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">Sofia Adham</h5>
+                                                <p><i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i></p>
+                                                <p class="mb-0">My name is Amany Ali and I love kids, I'm First Aid certified. I also have my own transportation </p>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-md-3"><img src="assets/images/details/girl2.jpg" class="card-img image--cover img-fluid" alt="..."></div>
-                                    <div class="col-md-9">
-                                        <h5>Donia elMlaky</h5>
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                        <p> My Name is Amany Ali and I love kids, I'm first Aid certified. I also have made my own transportation
-                                        </p>
-                                    </div>
-                                </div>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -105,8 +162,9 @@
                         <div class="card text-center">
                             <div class="card-body">
                                 <h5 class="card-title">Get in Touch</h5>
+                                <hr>
                                 <p class="card-text">Average rate for 1 child 50/Hr </p>
-                                <button data-target="#trigger">Contact Amany</button>
+                                <button mat-button (click)="openDialog()">Contact</button>
                             </div>
                         </div>
                     </div>
@@ -136,3 +194,4 @@
         </div>
     </div>
 </div>
+<app-subscribe></app-subscribe>

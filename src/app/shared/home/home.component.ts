@@ -18,9 +18,6 @@ export class HomeComponent implements OnInit {
     console.log(e.data);
     if (e.data === null) this.searchActivited = false;
     else this.searchActivited = true;
-
-
-
   }
 
   ngOnInit() {

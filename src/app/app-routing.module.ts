@@ -12,6 +12,9 @@ import { ProfileDetailsComponent } from './profile/profile-details/profile-detai
 import { FindBabySitterComponent } from './profile/findBabySitter/findBabySitter.component';
 import { SingedUserGuard } from './shared/services/singed-user.guard';
 import { SitterSignupComponent } from './authentication/sitter-signup/sitter-signup.component';
+import { OrderComponent } from './order/order.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
 
 const routes: Routes = [
   {
@@ -43,7 +46,14 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
+  },
+  {
+    path: 'userProfile', component: UserProfileComponent
+  },
+  {
+    path: 'userSettings', component: UserSettingsComponent
   }
+
 ];
 
 @NgModule({

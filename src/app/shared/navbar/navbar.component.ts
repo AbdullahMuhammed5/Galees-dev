@@ -14,11 +14,18 @@ export class NavbarComponent implements OnInit {
   Currentuser;
 
 
+  logout() {
+    localStorage.clear();
+    console.log("MMMM");
 
+  }
   ngOnInit() {
 
     this.auth.isLoggedIn;
     console.log(this.auth.loggedIn);
+    this.Currentuser = JSON.parse(localStorage.getItem('user'));
+    console.log(this.Currentuser.name);
+
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
         if (val.url === "/" || val.url === "/home" || val.url === "/findBabySitter") {
@@ -27,11 +34,7 @@ export class NavbarComponent implements OnInit {
         else {
           this.navBar = false;
         }
-        this.Currentuser = this.user.currentUser;
-        console.log(this.Currentuser);
-
       }
     })
   }
-
 }

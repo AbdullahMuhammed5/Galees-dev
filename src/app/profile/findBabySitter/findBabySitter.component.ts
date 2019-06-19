@@ -13,6 +13,7 @@ import { GetSitterDetailsService } from 'src/app/shared/services/get-sitter-deta
   providers: [NgbRatingConfig]
 })
 export class FindBabySitterComponent implements OnInit {
+  searchActivited: boolean = false;
 
   constructor(private http: HttpClient, private config: NgbRatingConfig, private route: Router, private getDetails: GetSitterDetailsService) {
     this.config.max = 5;
@@ -27,11 +28,11 @@ export class FindBabySitterComponent implements OnInit {
     step: 1,
     noSwitching: true
   };
-  minExp = 8;
+  minExp = 0;
   maxExp = 17;
   // tslint:disable-next-line: variable-name
   options_exp: Options = {
-    floor: 8,
+    floor: 0,
     ceil: 17,
     step: 1,
     noSwitching: true
@@ -120,62 +121,62 @@ export class FindBabySitterComponent implements OnInit {
 
 
 
-  updateType(e) {
-    if (e.checked) {
-      if (this.filters.career.length === 0) {
-        this.filters.career.push(e.source.value);
-        console.log(this.filters.career);
-      }
-      else {
-        if (this.filters.career.includes(e.source.value)) {
-        }
-        else {
-          this.filters.career.push(e.source.value);
-        }
-      }
-      // console.log(this.filters.gender);
-      this.display = this.multiFilter(this.profiles, this.filters);
-    }
-    else {
-      this.filters.career.splice(this.filters.career.indexOf(e.source.value), 1);
-      this.display = this.multiFilter(this.profiles, this.filters);
-      console.log(this.filters.career);
-    }
-  }
+  // updateType(e) {
+  //   if (e.checked) {
+  //     if (this.filters.career.length === 0) {
+  //       this.filters.career.push(e.source.value);
+  //       console.log(this.filters.career);
+  //     }
+  //     else {
+  //       if (this.filters.career.includes(e.source.value)) {
+  //       }
+  //       else {
+  //         this.filters.career.push(e.source.value);
+  //       }
+  //     }
+  //     // console.log(this.filters.gender);
+  //     this.display = this.multiFilter(this.profiles, this.filters);
+  //   }
+  //   else {
+  //     this.filters.career.splice(this.filters.career.indexOf(e.source.value), 1);
+  //     this.display = this.multiFilter(this.profiles, this.filters);
+  //     console.log(this.filters.career);
+  //   }
+  // }
 
-  multiFilter(profiles, filters) {
-    const filterKeys = Object.keys(filters);
-    let result = profiles.filter((item) => {
-      return filterKeys.every(key => {
-        if (!filters[key].length) return profiles;
-        return filters[key].includes(item[key]);
-      });
-    });
-    return result;
-  }
+  // multiFilter(profiles, filters) {
+  //   const filterKeys = Object.keys(filters);
+  //   let result = profiles.filter((item) => {
+  //     return filterKeys.every(key => {
+  //       if (!filters[key].length) return profiles;
+  //       return filters[key].includes(item[key]);
+  //     });
+  //   });
+  //   return result;
+  // }
 
 
-  updateGender(e) {
-    if (e.checked) {
-      if (this.filters.gender.length === 0) {
-        this.filters.gender.push(e.source.value);
-      }
-      else {
-        if (this.filters.gender.includes(e.source.value)) {
-        }
-        else {
-          this.filters.gender.push(e.source.value);
-        }
-      }
-      // console.log(this.filters.gender);
-      this.display = this.multiFilter(this.profiles, this.filters);
-    }
-    else {
-      this.filters.gender.splice(this.filters.gender.indexOf(e.source.value), 1);
-      this.display = this.multiFilter(this.profiles, this.filters);
-    }
+  // updateGender(e) {
+  //   if (e.checked) {
+  //     if (this.filters.gender.length === 0) {
+  //       this.filters.gender.push(e.source.value);
+  //     }
+  //     else {
+  //       if (this.filters.gender.includes(e.source.value)) {
+  //       }
+  //       else {
+  //         this.filters.gender.push(e.source.value);
+  //       }
+  //     }
+  //     // console.log(this.filters.gender);
+  //     this.display = this.multiFilter(this.profiles, this.filters);
+  //   }
+  //   else {
+  //     this.filters.gender.splice(this.filters.gender.indexOf(e.source.value), 1);
+  //     this.display = this.multiFilter(this.profiles, this.filters);
+  //   }
 
-  }
+  // }
 
   getDetail(profile, id) {
     console.log(profile);
@@ -199,8 +200,14 @@ export class FindBabySitterComponent implements OnInit {
       male: new FormControl(''),
     });
 
-
-    this.babySitter.valueChanges.subscribe(value => this.isBabySitter = value ? 'Baby Sitter' : undefined);
+    this.babySitter.valueChanges.subscribe(value => {
+      if (value) {
+        this.isBabySitter = "Baby Sitter";
+      }
+      else {
+        this.isBabySitter = undefined;
+      }
+    });
     this.nanny.valueChanges.subscribe(value => {
       if (value) {
         this.isNany = 'Nany';
@@ -211,7 +218,7 @@ export class FindBabySitterComponent implements OnInit {
     });
     this.elderlySitter.valueChanges.subscribe(value => {
       if (value) {
-        this.isElderlySitter = 'Eldery Sitter';
+        this.isElderlySitter = "Eldery Sitter";
       }
       else {
         this.isElderlySitter = undefined;
@@ -275,17 +282,44 @@ export class FindBabySitterComponent implements OnInit {
       }
     );
   }
+  searchIsActive(e) {
+    console.log(e.data);
+    if (e.data === null) this.searchActivited = false;
+    else this.searchActivited = true;
+  }
+
   fliter() {
     // const arr = this.profiles
-    //   .filter(profile => ( profile.age >= this.minAge && profile.age <= this.maxAge) )
-    //   .filter(profile => profile.career === )
+    const arr = this.profiles
+      .filter(profile => {
+        if (profile.age >= this.minAge && profile.age <= this.maxAge) return profile;
+      })
+      .filter(profile => {
+        if (profile.experience >= this.minExp && profile.experience <= this.maxExp) return profile;
+      })
+      .filter(profile => {
+        if (profile.career === this.isBabySitter) return profile;
+        if (profile.carrer === this.isElderlySitter) return profile;
+        // else if (profile.career == this.isNany) return profile;
+      })
+    // if (profile.carrer === this.isNany) return profile;
 
-    for (let key of this.profiles) {
-      for (let prop of key) {
-        console.log(prop);
-      }
-    }
+    // .filter(profile => {
+    //   if (profile.gender === this.isFemale) return profile;
+    //   if (profile.gender === this.isMale) return profile;
+    // })
+    // .filter(profile => {
+    //   if (profile.reviewRate >= this.revFrom && profile.reviewRate <= this.revTo) return profile;
+    // })
+    // .filter(profile => {
+    //   if (profile.FAC === this.isFac) return profile;
+    //   if (profile.car === this.isHasCar) return profile;
+    //   if (profile.children === this.isHasChild) return profile;
+    //   if (profile.smoker === this.isSmoker) return profile;
+    //   if (profile.reviews === this.isHasRev) return profile;
+    // })
 
+    console.log(arr);
 
     // arr = ['Baby Sitter', 'Eldery Sitter', 'Nany']
     // temp1.map(function(elem){

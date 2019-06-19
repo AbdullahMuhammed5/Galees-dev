@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export class UsersService {
   res;
   currentUser;
-  id;
   constructor(private user: HttpClient) { }
 
   getUser(email) {
@@ -15,20 +14,16 @@ export class UsersService {
       subscribe(res => {
         this.currentUser = res;
         console.log(this.currentUser);
-
-        this.id = this.currentUser.id
+        console.log(this.currentUser.id);
+        localStorage.setItem('user', JSON.stringify(this.currentUser))
       });
   }
   getCurrentUser() {
     return this.currentUser;
   }
-  getProfileData(id:number){
-    return this.user.get('http://localhost:8000/get-profile-data/'+id)
+  getProfileData(id: number) {
+    return this.user.get('http://localhost:8000/get-profile-data/' + id)
   }
-  getID() {
-    return this.id;
-  }
-
 }
 
 // return this.notificationHttp.get('http://localhost:8000/get-orders-num/'+id)

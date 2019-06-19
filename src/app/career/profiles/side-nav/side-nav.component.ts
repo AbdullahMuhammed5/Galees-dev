@@ -18,9 +18,9 @@ export class SideNavComponent implements OnInit {
 
 
     // this.id = this.userService.id;
-    this.userService.getUser('abdo@dev.com');
+    // this.userService.getUser('abdo@dev.com');
     setTimeout(() => {
-      this.id = this.userService.getID();
+      this.id = this.userService.currentUser.id;
       console.log(this.id)
       this.notifService.getOrdersNum(this.id).subscribe(
         res => this.notificationCount = res

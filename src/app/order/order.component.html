@@ -2,14 +2,10 @@
 <section id="signup" class="py-5">
     <div class="container">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-xs-12">
-                    <img class="img-fluid" src="../../assets/img/order.png" alt="signup">
-                </div>
-                <div class="col-md-6 col-xs-12">
-                    <h2 class="text-center">Make a request</h2>
-                    <!-- Start Form -->
-                    <form [formGroup]="signupUser" (ngSubmit)="onSubmit(signupUser)">
+            <h3 mat-dialog-title> Make a Request </h3>
+
+<mat-dialog-content>
+   <form [formGroup]="signupUser" (ngSubmit)="onSubmit(signupUser)">
                         <div class="row">
                             <!-- From & To -->
                             <div class="col-12 mt-3">
@@ -122,9 +118,8 @@
                             <button mat-button type="submit">Make Request</button>
                         </div>
                     </form>
-                    <!-- End Form -->
-                </div>
-            </div>
+</mat-dialog-content>
+
         </div>
     </div>
 </section>
