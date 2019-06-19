@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { OrderComponent } from '../../order/order.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2'
 
 
@@ -16,17 +17,23 @@ import Swal from 'sweetalert2'
 export class ProfileDetailsComponent implements OnInit {
   sitter;
   id;
+  reviews;
   constructor(private profile: GetSitterDetailsService,
     private route: ActivatedRoute,
     private userService: UsersService,
     private router: Router,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private http: HttpClient) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.userService.getProfileData(this.id).subscribe(
       res => this.sitter = res
     );
+
+    this.http.get('http://localhost:8000/get-received-reviews-regular/' + this.id).subscribe(rev => {
+      this.reviews = rev;
+    })
   }
 
   openDialog() {

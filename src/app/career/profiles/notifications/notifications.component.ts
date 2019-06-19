@@ -30,7 +30,7 @@ export class NotificationsComponent implements OnInit {
     this.notifService.sitterOrders(this.user.id)
       .subscribe(res => {
         this.res = res
-        console.log(res);
+        console.log(this.res);
       })
       
   }

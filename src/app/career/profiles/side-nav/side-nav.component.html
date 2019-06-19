@@ -1,8 +1,8 @@
 <section id="sideNav" class="p-4">
     <div class="text-center">
-        <img src="../../../../assets/img/kamel.jpg" class="img-fluid">
-        <h3>Nourhan Hassan</h3>
-        <p>Babysitter</p>
+        <img [attr.src]="'http://localhost:8000/get-img/'+sitter.personalPic">
+        <h3>{{sitter.name}}</h3>
+        <p>{{sitter.career}}</p>
         <hr>
     </div>
     <div class="contact">

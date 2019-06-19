@@ -12,9 +12,12 @@ import { UsersService } from 'src/app/shared/services/users.service';
 export class SideNavComponent implements OnInit {
   notificationCount;
   id;
+  sitter = JSON.parse(localStorage.getItem('user'));
   constructor(private notifService: NotificationService,
     private userService: UsersService) { }
   ngOnInit() {
+    console.log(this.sitter);
+
 
 
     // this.id = this.userService.id;

@@ -226,62 +226,7 @@ export class FindBabySitterComponent implements OnInit {
       })
        .filter(profile => {if (profile.reviewRate >= this.revFrom.value && profile.reviewRate <=this.revTo.value) return profile;
       })
-      // .filter(profile => {
-      //   if(profile.FAC === this.isFac) {
-      //     return profile;
-      //   }
-      // })
-
-    // .filter(profile => {
-    //   if (profile.gender === this.isFemale) return profile;
-    //   if (profile.gender === this.isMale) return profile;
-    // })
-    // .filter(profile => {
-    //   if (profile.reviewRate >= this.revFrom && profile.reviewRate <= this.revTo) return profile;
-    // })
-    // .filter(profile => {
-    //   if (profile.FAC === this.isFac) return profile;
-    //   if (profile.car === this.isHasCar) return profile;
-    //   if (profile.children === this.isHasChild) return profile;
-    //   if (profile.smoker === this.isSmoker) return profile;
-    //   if (profile.reviews === this.isHasRev) return profile;
-    // })
-
+    this.profiles = arr;
     console.log(arr);
-
-    // arr = ['Baby Sitter', 'Eldery Sitter', 'Nany']
-    // temp1.map(function(elem){
-    //   arr.map((item)=>{
-    //     if(elem.career == "Baby Sitter"){
-    //       return elem.career;	
-    //     }
-    //   })
-    // })
-
-    // arr = ['Baby Sitter']
-    // temp1.map(function(elem){
-    //   return arr.map((item)=>{
-    //     if(elem.career == item){
-    //       return elem.career;	
-    //     }
-    //   })
-    // }).filter((profile) => profile[0] !== undefined)
-
-
-    // console.log(arr);
-
-    // this.profiles = arr;
-  }
-
-  // filteredByAge (min, max) -> array of objects;
-  // SELECT `name` FROM `users` where TIMESTAMPDIFF(YEAR, users.birthdate, CURDATE()) BETWEEN 22 and 45
-
-  // if(!male && !female){
-
-  // } else{
-
-  // }
-
 }
-
-;
+}
