@@ -24,11 +24,16 @@ export class NotificationsComponent implements OnInit {
     private userService: UsersService) {
   }
 
+  user = JSON.parse(localStorage.getItem('user'));
+
   ngOnInit() {
     this.notifService.getOrders()
       .subscribe(res => {
         this.res = res
       })
+console.log(this.user);
+
+    
     // this.res = this.notifService.res;
     // this.users = this.userService.res;
     // console.log(this.users);
@@ -41,6 +46,12 @@ export class NotificationsComponent implements OnInit {
     //   res=> this.notificationNum = res;
     // )
     // console.log(this.users);
+  }
+  reject(f,res) {
+    console.log(f.path);
+    this.res.splice(this.res.indexOf(res),1) ;
+    // this.res.splice(res,1)
+    
   }
 }
 

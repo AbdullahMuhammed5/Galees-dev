@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row align-items-baseline">
                 <div class="col-xl-2 col-md-12 col-lg-2 col-sm-12 d-flex align-items-baseline justify-content-between">
-                    <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="img-fluid" alt=""></a>
+                    <a class="navbar-brand" href="#"><img src="assets/img/GLogo.png" class="img-fluid" alt=""></a>
                     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle
                             navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
                             <div *ngIf="this.auth.isLoggedIn">
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <img class="img-fluid" [attr.src]="'http://localhost:8000/get-img/'+this.Currentuser.personalPic" alt=""> 
+                                                    <img class="img-fluid" [attr.src]="'http://localhost:8000/get-img/'+Currentuser.personalPic" alt=""> 
                                             </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" routerLink="userProfile"><i class="fas fa-id-badge mr-2"></i> Profiles</a>

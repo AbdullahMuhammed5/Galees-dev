@@ -164,5 +164,5 @@ a {
 }
 
 h6 {
-    @include typoStyle($open, .8rem, 900);
+    @include typoStyle($openSemiBold, .8rem, 900);
 }

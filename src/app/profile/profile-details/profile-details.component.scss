@@ -1,50 +1,38 @@
 @import '../../../assets/scss/variables';
 @import '../../../assets/scss/mixins';
+
+.card-img {
+    boder-radius: 50% !important;
+}
 .details {
-    .image--cover {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 3px solid $white;
-        object-fit: cover;
-        object-position: center right;
+    .fa-star {
+        color: #FFCC00;
     }
-    .card {
-        border-radius: 20px;
-        background: #fff;
-        box-shadow: 0px 0px 10px rgba(221, 223, 226, 0.16);
-        border: 0;
+}
+.card {
+    border-radius: 20px;
+    background: $white;
+    box-shadow: 0px 0px 10px rgba(221, 223, 226, 0.16);
+    border: 0;
+//    .media {
         img {
-            width: 80%;
             margin: $auto-margin;
             filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
             -webkit-filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
             border-radius: 50%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
+            // @include border(3px, solid, $primary-color);
+            width: 80%;
         }
-        h3 {
-            @include typoStyle($openSemiBold, 1.5rem, 900);
-            color: $primary-color;
+        h5 {
+            // @include typoStyle($openSemiBold, 1.2rem, 900);
+            color: #000;
         }
-        button {
-            @include box-shadow (0, 3px, 6px, 0, rgba(0, 0, 0, 0.16));
-            @extend %primary-btn;
-        }
+        
         p {
             color: #707070;
-            @include typoStyle($openRegualr, 1rem, 500);
-            strong {
-                color: #000000;
-                @include typoStyle($openSemiBold, 1.2rem, 900);
-            }
+            // @include typoStyle($openRegualr, 1rem, 500);
         }
-    }
-    .fa-star {
-        color: #FFCC00;
-    }
+    // }
 }
 
 .spec {
@@ -55,7 +43,8 @@
     margin-top: 5px;
 }
 
-.cardRev {
+
+.review {
     .card {
         border-radius: 20px;
         background: $white;

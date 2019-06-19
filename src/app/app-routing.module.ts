@@ -15,6 +15,11 @@ import { SitterSignupComponent } from './authentication/sitter-signup/sitter-sig
 import { OrderComponent } from './order/order.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SubmitPasswordComponent } from './submit-password/submit-password.component';
+import { EmailSendComponent } from './email-send/email-send.component';
+import { ClientSignupComponent } from './authentication/client-signup/client-signup.component';
+import {UserHistoryComponent} from './user-history/user-history.component'
 
 const routes: Routes = [
   {
@@ -42,16 +47,28 @@ const routes: Routes = [
     path: 'contact-us', component: ContactUsComponent
   },
   {
-    path: 'about', component: AboutComponent, canActivate: [SingedUserGuard],
+    path: 'about', component: AboutComponent
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'client-signup', component: ClientSignupComponent
   },
   {
     path: 'userProfile', component: UserProfileComponent
   },
   {
     path: 'userSettings', component: UserSettingsComponent
+  },
+  {
+    path: 'resetPassword', component: ResetPasswordComponent
+  },
+  {
+    path: 'submitPassword', component: SubmitPasswordComponent
+  },
+  {
+    path: 'sendPassword', component: EmailSendComponent
+  },
+  {
+    path: 'history', component: UserHistoryComponent
   }
 
 ];

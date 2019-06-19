@@ -10,13 +10,7 @@ export class UsersService {
   constructor(private user: HttpClient) { }
 
   getUser(email) {
-    this.user.get('http://localhost:8000/current-user/' + email).
-      subscribe(res => {
-        this.currentUser = res;
-        console.log(this.currentUser);
-        console.log(this.currentUser.id);
-        localStorage.setItem('user', JSON.stringify(this.currentUser))
-      });
+    return this.user.get('http://localhost:8000/current-user/' + email)
   }
   getCurrentUser() {
     return this.currentUser;

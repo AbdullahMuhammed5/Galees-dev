@@ -9,10 +9,13 @@ import { PersonalInfoComponent } from './career/profiles/personal-info/personal-
 import { NotificationsComponent } from './career/profiles/notifications/notifications.component';
 import { ReviewsComponent } from './career/profiles/reviews/reviews.component';
 import { SettingsComponent } from './career/profiles/settings/settings.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: 'career', component: CareersComponent },
   { path: 'career/signup', component: SitterSignupComponent },
+  
+
   // {
   //   path: 'career', component: CareersComponent, children: [
 

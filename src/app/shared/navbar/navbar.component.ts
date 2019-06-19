@@ -9,27 +9,27 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  navBar = false;
+  navBar;
   constructor(private router: Router, private auth: AuthService, private user: UsersService) { }
   Currentuser;
 
 
   logout() {
     localStorage.clear();
-    console.log("MMMM");
-
+    this.router.navigateByUrl('client-signup');
   }
   ngOnInit() {
 
     this.auth.isLoggedIn;
-    console.log(this.auth.loggedIn);
     this.Currentuser = JSON.parse(localStorage.getItem('user'));
-    console.log(this.Currentuser.name);
 
     this.router.events.subscribe(val => {
+
       if (val instanceof NavigationEnd) {
         if (val.url === "/" || val.url === "/home" || val.url === "/findBabySitter") {
           this.navBar = true;
+          console.log(true);
+
         }
         else {
           this.navBar = false;

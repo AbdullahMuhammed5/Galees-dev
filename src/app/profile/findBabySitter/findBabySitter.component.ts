@@ -13,7 +13,6 @@ import { GetSitterDetailsService } from 'src/app/shared/services/get-sitter-deta
   providers: [NgbRatingConfig]
 })
 export class FindBabySitterComponent implements OnInit {
-  searchActivited: boolean = false;
 
   constructor(private http: HttpClient, private config: NgbRatingConfig, private route: Router, private getDetails: GetSitterDetailsService) {
     this.config.max = 5;
@@ -282,6 +281,8 @@ export class FindBabySitterComponent implements OnInit {
       }
     );
   }
+  searchActivited = false;
+
   searchIsActive(e) {
     console.log(e.data);
     if (e.data === null) this.searchActivited = false;
@@ -298,11 +299,37 @@ export class FindBabySitterComponent implements OnInit {
         if (profile.experience >= this.minExp && profile.experience <= this.maxExp) return profile;
       })
       .filter(profile => {
-        if (profile.career === this.isBabySitter) return profile;
-        if (profile.carrer === this.isElderlySitter) return profile;
-        // else if (profile.career == this.isNany) return profile;
+        if(profile.gender === this.isFemale) {
+              return profile;
+            }  
+            else if (profile.gender === this.isMale) {
+              return profile;
+            }
+           else if(this.isMale === undefined && this.isFemale === undefined) {
+             return profile;
+           }
       })
-    // if (profile.carrer === this.isNany) return profile;
+      .filter(profile => {
+        if(profile.career === this.isBabySitter) {
+          return profile;
+        }
+        else if(profile.career === this.isElderlySitter) {
+          return profile;
+        }
+        else if(profile.career === this.isNany) {
+          return profile;
+        }
+        else if(this.isBabySitter === undefined && this.isElderlySitter === undefined && this.isNany === undefined) {
+             return profile;
+           }
+      })
+       .filter(profile => {if (profile.reviewRate >= this.revFrom.value && profile.reviewRate <=this.revTo.value) return profile;
+      })
+      // .filter(profile => {
+      //   if(profile.FAC === this.isFac) {
+      //     return profile;
+      //   }
+      // })
 
     // .filter(profile => {
     //   if (profile.gender === this.isFemale) return profile;

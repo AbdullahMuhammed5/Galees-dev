@@ -22,19 +22,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('http://localhost:8000/get-profile-card').subscribe(
-      // res => this.profiles = res
       res => {
         console.log(res);
         this.profiles = res;
         this.fixedSitter = this.profiles.slice(0, 4);
-        console.log(this.fixedSitter);
-
       }
     );
     this.carouselOptions = {
       margin: 25,
       nav: true,
-      // navText: ['<div class='nav - btn prev - slide'></div>', '<div class='nav - btn next - slide'></div>'],
       responsiveClass: true,
       responsive: {
         0: {
@@ -55,7 +51,7 @@ export class HomeComponent implements OnInit {
           nav: true,
         }
       }
-    };
+    }
   }
 
 

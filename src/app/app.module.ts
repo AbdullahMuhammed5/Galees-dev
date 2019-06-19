@@ -72,6 +72,10 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SubscribeComponent } from './shared/subscribe/subscribe.component';
 import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SubmitPasswordComponent } from './submit-password/submit-password.component';
+import { EmailSendComponent } from './email-send/email-send.component';
+import { UserHistoryComponent } from './user-history/user-history.component';
 
 
 @NgModule({
@@ -93,6 +97,10 @@ import { UserSettingsComponent } from './shared/user-settings/user-settings.comp
     ContactUsComponent,
     UserProfileComponent,
     UserSettingsComponent,
+    ResetPasswordComponent,
+    SubmitPasswordComponent,
+    EmailSendComponent,
+    UserHistoryComponent,
   ],
   imports: [
     CareerRoutingModule,

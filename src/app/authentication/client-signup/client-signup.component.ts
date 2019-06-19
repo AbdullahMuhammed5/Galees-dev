@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CustomValidators } from 'ng2-validation';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-signup',
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientSignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) { }
   hide = true;
   // Array to Select Gender
   genders: string[] = ['Female', 'Male'];
@@ -49,6 +50,7 @@ export class ClientSignupComponent implements OnInit {
       };
   }
   onSubmit(form) {
+    if(form.valid) this.router.navigateByUrl('/home');
     form.value.imgID = form.value.imgID ? this.urls[0] : null;
     this.authService
       .signUpClientUser(form.value)

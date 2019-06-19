@@ -6,6 +6,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class OrderComponent implements OnInit {
     private dialogRef: MatDialog,
     private route: Router,
     private currUser: UsersService,
-    private sitterService:GetSitterDetailsService) { }
+    private sitterService: GetSitterDetailsService) { }
 
   // tslint:disable-next-line: member-ordering
   signupUser: FormGroup;
@@ -38,23 +39,32 @@ export class OrderComponent implements OnInit {
       phone: ['', [Validators.required, CustomValidators.digits]],
       addition: ['']
     });
-    if(localStorage.getItem('id')){
+    if (localStorage.getItem('id')) {
       console.log(+(localStorage.getItem('id')))
-      console.log(typeof( localStorage.getItem('id')))
+      console.log(typeof (localStorage.getItem('id')))
     }
-    
+
   }
 
   onSubmit(form) {
     form.value.sitterID = +(localStorage.getItem('sitter'));
     form.value.customerID = +(localStorage.getItem('id'));
+   setTimeout(() => {
+    this.route.navigateByUrl('/home');
+   }, 2000);
     console.log(form.value);
     this.http.post('http://localhost:8000/orders', form.value).subscribe(res => console.log(res)
     )
     this.dialogRef.closeAll();
-
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Your Request has been sent',
+      showConfirmButton: false,
+      timer: 1500
+    })
     console.log(this.route);
-    
+
   }
 }
 

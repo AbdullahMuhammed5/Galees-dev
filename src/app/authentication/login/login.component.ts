@@ -33,14 +33,20 @@ export class LoginComponent implements OnInit {
   }
   currentUser;
   loginData(form) {
-    console.log('shaimaaaaaaaa')
-    console.log(form.controls.email.value)
+    // console.log('shaimaaaaaaaa')
+    // console.log(form.controls.email.value)
     this.user.getUser(form.controls.email.value)
-    setTimeout(() => {
-      this.currentUser = this.user.getCurrentUser();
-      console.log(this.currentUser);
-      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-    }, 2000);
+    .subscribe(res => {
+      console.log(res);
+      
+      this.currentUser = res;
+      localStorage.setItem('user', JSON.stringify(this.currentUser))
+    });
+    // setTimeout(() => {
+    //   this.currentUser = this.user.getCurrentUser();
+    //   console.log(this.currentUser);
+    //   // localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    // }, 2000);
 
 
     this.authService.signInUser(form.value).subscribe(
@@ -49,9 +55,9 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if (res) {
           localStorage.setItem('login', 'true');
-          console.log(JSON.parse(localStorage.getItem('currentUser')).role);
+          console.log(JSON.parse(localStorage.getItem('user')).role);
 
-          if (JSON.parse(localStorage.getItem('currentUser')).role === 1) {
+          if (JSON.parse(localStorage.getItem('user')).role === 2) {
             this.route.navigateByUrl('/home');
             console.log('To Home');
           }
