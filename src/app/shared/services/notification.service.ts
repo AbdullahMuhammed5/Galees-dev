@@ -12,7 +12,9 @@ export class NotificationService {
   getOrders(){
     return this.notification.get('http://localhost:8000/orders');
   }
-
+  sitterOrders(id){
+    return this.notification.get('http://localhost:8000/sitter-orders-history/'+id)
+  }
   getOrdersNum(id){
     return this.notification.get('http://localhost:8000/get-orders-num/'+id);
   }

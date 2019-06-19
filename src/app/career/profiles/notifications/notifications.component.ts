@@ -23,35 +23,20 @@ export class NotificationsComponent implements OnInit {
     private notifService: NotificationService,
     private userService: UsersService) {
   }
-
+  id;
   user = JSON.parse(localStorage.getItem('user'));
 
   ngOnInit() {
-    this.notifService.getOrders()
+    this.notifService.sitterOrders(this.user.id)
       .subscribe(res => {
         this.res = res
+        console.log(res);
       })
-console.log(this.user);
-
-    
-    // this.res = this.notifService.res;
-    // this.users = this.userService.res;
-    // console.log(this.users);
-    // this.notification.get('http://localhost:8000/orders')
-    //   .subscribe(res => {
-    //   this.res = res
-    // });
-    // this.notification.get('http://localhost:8000/get-orders-num/'+id)
-    // .subscribe(
-    //   res=> this.notificationNum = res;
-    // )
-    // console.log(this.users);
+      
   }
-  reject(f,res) {
-    console.log(f.path);
-    this.res.splice(this.res.indexOf(res),1) ;
-    // this.res.splice(res,1)
-    
+
+  reject(f, res) {
+    this.res.splice(this.res.indexOf(res),1)
   }
 }
 

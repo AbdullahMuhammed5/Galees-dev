@@ -69,33 +69,7 @@ export class FindBabySitterComponent implements OnInit {
     console.log(event.target.value);
   }
   sitterFilter;
-
-  // this.sitterFilter = new FormGroup({
-  //   type: new FormGroup({
-  //     babySitter: new FormControl(''),
-  //     nany: new FormControl(''),
-  //     elderlySitter: new FormControl('') 
-  //   }),
-  //   gender: new FormGroup({
-  //     female: new FormControl(''),
-  //     male: new FormControl('')
-  //   }),
-  //   rating: new FormGroup({
-  //     revFrom: new FormControl(''),
-  //     revTo: new FormControl(''),
-  //   }),
-  //   about: new FormGroup({
-  //     fac: new FormControl(''),
-  //     smoker: new FormControl(''),
-  //     hasChild: new FormControl(''),
-  //     hasCar: new FormControl(''),
-  //     hasRev: new FormControl(''),
-  //   })
-
-  // })
   pro;
-
-
   spec: FormGroup;
   gender: FormGroup;
 
@@ -103,79 +77,6 @@ export class FindBabySitterComponent implements OnInit {
     career: [],
     gender: [],
   }
-
-
-  // apply() {
-  //   var arr = [];
-  //   this.profiles.filter(ele => {
-  //     if (this.minAge <= ele.age && this.maxAge >= ele.age) {
-  //       arr.push(ele);
-  //     }
-  //   })
-  //   console.log(arr);
-  //   this.pro = arr;
-  //   // console.log(this.pro);
-
-  // }
-
-
-
-  // updateType(e) {
-  //   if (e.checked) {
-  //     if (this.filters.career.length === 0) {
-  //       this.filters.career.push(e.source.value);
-  //       console.log(this.filters.career);
-  //     }
-  //     else {
-  //       if (this.filters.career.includes(e.source.value)) {
-  //       }
-  //       else {
-  //         this.filters.career.push(e.source.value);
-  //       }
-  //     }
-  //     // console.log(this.filters.gender);
-  //     this.display = this.multiFilter(this.profiles, this.filters);
-  //   }
-  //   else {
-  //     this.filters.career.splice(this.filters.career.indexOf(e.source.value), 1);
-  //     this.display = this.multiFilter(this.profiles, this.filters);
-  //     console.log(this.filters.career);
-  //   }
-  // }
-
-  // multiFilter(profiles, filters) {
-  //   const filterKeys = Object.keys(filters);
-  //   let result = profiles.filter((item) => {
-  //     return filterKeys.every(key => {
-  //       if (!filters[key].length) return profiles;
-  //       return filters[key].includes(item[key]);
-  //     });
-  //   });
-  //   return result;
-  // }
-
-
-  // updateGender(e) {
-  //   if (e.checked) {
-  //     if (this.filters.gender.length === 0) {
-  //       this.filters.gender.push(e.source.value);
-  //     }
-  //     else {
-  //       if (this.filters.gender.includes(e.source.value)) {
-  //       }
-  //       else {
-  //         this.filters.gender.push(e.source.value);
-  //       }
-  //     }
-  //     // console.log(this.filters.gender);
-  //     this.display = this.multiFilter(this.profiles, this.filters);
-  //   }
-  //   else {
-  //     this.filters.gender.splice(this.filters.gender.indexOf(e.source.value), 1);
-  //     this.display = this.multiFilter(this.profiles, this.filters);
-  //   }
-
-  // }
 
   getDetail(profile, id) {
     console.log(profile);
