@@ -16,21 +16,12 @@ export class SideNavComponent implements OnInit {
   constructor(private notifService: NotificationService,
     private userService: UsersService) { }
   ngOnInit() {
-    console.log(this.sitter);
-
-
-
-    // this.id = this.userService.id;
-    // this.userService.getUser('abdo@dev.com');
     setTimeout(() => {
-      this.id = this.userService.currentUser.id;
       console.log(this.id)
-      this.notifService.getOrdersNum(this.id).subscribe(
+      this.notifService.getOrdersNum(this.sitter.id).subscribe(
         res => this.notificationCount = res
       )
     }, 2000);
-
-
   }
 
 }

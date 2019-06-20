@@ -48,10 +48,10 @@ export class OrderComponent implements OnInit {
 
   onSubmit(form) {
     form.value.sitterID = +(localStorage.getItem('sitter'));
-    form.value.customerID = +(localStorage.getItem('id'));
-   setTimeout(() => {
-    this.route.navigateByUrl('/home');
-   }, 2000);
+    form.value.customerID = JSON.parse(localStorage.getItem('user')).id;
+    // setTimeout(() => {
+    //   this.route.navigateByUrl('/home');
+    // }, 2000);
     console.log(form.value);
     this.http.post('http://localhost:8000/orders', form.value).subscribe(res => console.log(res)
     )

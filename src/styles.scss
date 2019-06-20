@@ -44,18 +44,20 @@ $galees-theme: mat-light-theme($galees-primary, $galees-accent, $galees-warn);
     src: url(./assets/fonts/OpenSans-SemiBold.ttf);
 }
 
-button[disabled]  {
+button[disabled] {
     opacity: 0.5;
     color: $white !important;
 }
-
-
 
 html,
 body {
     height: 100%;
     // font-family: $open;
     background: $milk;
+}
+
+mat-hint {
+    font-size: .8rem;
 }
 
 
