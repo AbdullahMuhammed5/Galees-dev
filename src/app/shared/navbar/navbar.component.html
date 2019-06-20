@@ -31,20 +31,33 @@
                                 </li>
                             </div>
                             <div *ngIf="this.auth.isLoggedIn">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div *ngIf="Currentuser.role == 2">
+
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img class="img-fluid" [attr.src]="'http://localhost:8000/get-img/'+Currentuser.personalPic" alt=""> 
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" routerLink="userProfile"><i class="fas fa-id-badge mr-2"></i> Profiles</a>
-                                        <a class="dropdown-item" routerLink="history"><i class="far fa-list-alt mr-2"></i> Orders</a>
-                                        <a class="dropdown-item" routerLink="userSettings"><i class="fas fa-cog mr-2"></i> Settings</a>
-                                        <a class="dropdown-item" (click)="logout()"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" routerLink="userProfile"><i class="fas fa-id-badge mr-2"></i> Profiles</a>
+                                            <a class="dropdown-item" routerLink="history"><i class="far fa-list-alt mr-2"></i> Orders</a>
+                                            <a class="dropdown-item" routerLink="userSettings"><i class="fas fa-cog mr-2"></i> Settings</a>
+                                            <a class="dropdown-item" (click)="logout()"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <li class="nav-item">
+                                <div *ngIf="Currentuser.role == 1">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <img class="img-fluid" [attr.src]="'http://localhost:8000/get-img/'+Currentuser.personalPic" alt=""> 
+                                            </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" routerLink="sitter/personal-info"><i class="fas fa-id-badge mr-2"></i> Profiles</a>
+                                            <a class="dropdown-item" (click)="logout()"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
 
-                                </li>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </ul>
                     </div>

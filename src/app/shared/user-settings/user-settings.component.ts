@@ -46,20 +46,20 @@ export class UserSettingsComponent implements OnInit {
       )
     ]);
     this.signup = this.formBuilder.group({
-      fname: ["Nourhan"],
-      lname: ["Hassan "],
-      email: ["nourhan.hassan@gmail.com"],
+      fname: [""],
+      lname: [""],
+      email: [""],
       password: pass,
       password_confirmation: [
         null,
         [Validators.required, CustomValidators.equalTo(pass)]
       ],
-      phone: ["012359781205", [Validators.required, CustomValidators.digits]],
-      location: ["5 Mahmoud salama, Mohram Bek,Alex "],
-      birthdate: ["20/10/1999"],
+      phone: ["", [Validators.required, CustomValidators.digits]],
+      location: [""],
+      birthdate: [""],
       gender: [""],
       bio: [
-        "My name is Amany Ali and I love kids, I'm First Aid certified. I also have my own transportation that can fit up to 4 kids safely and a clean driving record. I can do pickups and drop offs. feel free to order me anytime."
+        ""
       ]
     });
   }

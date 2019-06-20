@@ -16,12 +16,13 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     localStorage.clear();
-    this.router.navigateByUrl('client-signup');
+    this.router.navigateByUrl('login');
   }
   ngOnInit() {
 
     this.auth.isLoggedIn;
     this.Currentuser = JSON.parse(localStorage.getItem('user'));
+    console.log(this.Currentuser.role);
 
     this.router.events.subscribe(val => {
 

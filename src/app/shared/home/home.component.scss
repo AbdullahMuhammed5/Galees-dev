@@ -115,11 +115,12 @@ section#profiles {
     padding: 15.21rem 0;
     @include background-img('../../../assets/img/profile.png', cover, center, no-repeat);
     h4 {
-        @include typoStyle($open, 1.714rem, 900);
+        @include typoStyle($open, 1.1rem, 900);
         color: $white;
+        margin-top: 5px;
     }
     p {
-        @include typoStyle($openRegualr, 1.286rem, 500);
+        @include typoStyle($openRegualr, 1rem, 500);
         color: #dedede;
     }
     .see-more {
@@ -158,6 +159,13 @@ section#reviews {
             @include typoStyle($openRegualr, 1.429rem, 500);
             color: #999999;
         }
+    }
+    img {
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
     }
     .parent {
         position: relative;
@@ -231,6 +239,7 @@ section#video {
     width: 55px;
     height: 55px;
     border-radius: 50%;
+    outline: 0 !important;
 }
 
 .owl-prev span {

@@ -1,24 +1,45 @@
-.card-style{
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+.card-style {
     background-color: #ffffff;
     border-radius: 1rem;
 }
-.yellow{
+
+h5 {
+    @include typoStyle($openBold, 1.5rem, 900);
+    color: $primary-color;
+}
+
+p {
+    @include typoStyle($openBold, 1rem, 900);
+    color: #000;
+    span {
+        @include typoStyle($openRegualr, 1rem, 500);
+    }
+}
+
+.yellow {
     color: #FFCC00;
 }
-.card-body{
+
+.card-body {
     padding: 2rem 0 !important;
 }
-.padding{
+
+.padding {
     padding: 1.3rem;
 }
-.img-rate{
+
+.img-rate {
     width: 7rem;
     height: 7rem;
     border-radius: 50%;
 }
-.card{
+
+.card {
     border: 0;
 }
-.font-med{
-    font-size: 1.2rem;
+
+.font-med {
+    @include typoStyle($openRegualr, 1rem, 400);
 }

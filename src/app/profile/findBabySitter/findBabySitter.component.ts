@@ -13,6 +13,7 @@ import { GetSitterDetailsService } from 'src/app/shared/services/get-sitter-deta
   providers: [NgbRatingConfig]
 })
 export class FindBabySitterComponent implements OnInit {
+  filtered: any;
 
   constructor(private http: HttpClient, private config: NgbRatingConfig, private route: Router, private getDetails: GetSitterDetailsService) {
     this.config.max = 5;
@@ -189,9 +190,13 @@ export class FindBabySitterComponent implements OnInit {
     if (e.data === null) this.searchActivited = false;
     else this.searchActivited = true;
   }
-
+  flag = false;
+  totalProfiles = this.profiles;
   fliter() {
-    // const arr = this.profiles
+    console.log(this.flag);
+    this.flag = true;
+    console.log(this.flag);
+
     const arr = this.profiles
       .filter(profile => {
         if (profile.age >= this.minAge && profile.age <= this.maxAge) return profile;
@@ -200,33 +205,34 @@ export class FindBabySitterComponent implements OnInit {
         if (profile.experience >= this.minExp && profile.experience <= this.maxExp) return profile;
       })
       .filter(profile => {
-        if(profile.gender === this.isFemale) {
-              return profile;
-            }  
-            else if (profile.gender === this.isMale) {
-              return profile;
-            }
-           else if(this.isMale === undefined && this.isFemale === undefined) {
-             return profile;
-           }
+        if (profile.gender === this.isFemale) {
+          return profile;
+        }
+        else if (profile.gender === this.isMale) {
+          return profile;
+        }
+        else if (this.isMale === undefined && this.isFemale === undefined) {
+          return profile;
+        }
       })
       .filter(profile => {
-        if(profile.career === this.isBabySitter) {
+        if (profile.career === this.isBabySitter) {
           return profile;
         }
-        else if(profile.career === this.isElderlySitter) {
+        else if (profile.career === this.isElderlySitter) {
           return profile;
         }
-        else if(profile.career === this.isNany) {
+        else if (profile.career === this.isNany) {
           return profile;
         }
-        else if(this.isBabySitter === undefined && this.isElderlySitter === undefined && this.isNany === undefined) {
-             return profile;
-           }
+        else if (this.isBabySitter === undefined && this.isElderlySitter === undefined && this.isNany === undefined) {
+          return profile;
+        }
       })
-       .filter(profile => {if (profile.reviewRate >= this.revFrom.value && profile.reviewRate <=this.revTo.value) return profile;
+      .filter(profile => {
+        if (profile.reviewRate >= this.revFrom.value && profile.reviewRate <= this.revTo.value) return profile;
       })
     this.profiles = arr;
     console.log(arr);
-}
+  }
 }

@@ -14,14 +14,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 const routes: Routes = [
   { path: 'career', component: CareersComponent },
   { path: 'career/signup', component: SitterSignupComponent },
-  
 
-  // {
-  //   path: 'career', component: CareersComponent, children: [
 
-  //     { path: 'signup', component: SitterSignupComponent }
-  //   ]
-  // },
   {
     path: 'sitter', component: ProfileSitterComponent, children: [
       {

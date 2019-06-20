@@ -7,7 +7,7 @@
     border: 0;
     h4 {
         color: $primary-color;
-        // @include typoStyle($openBold, 1.3rem, 900);
+        @include typoStyle($openBold, 1.2rem, 900);
     }
     p {
         color: #707070;
